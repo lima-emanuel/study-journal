@@ -13,11 +13,11 @@
     - [Wildcards](#wildcards)
     - [Commands](#commands-1)
     - [Variables](#variables)
-  - [Vim](#vim)
   - [System Information](#system-information)
   - [Environment](#environment)
   - [Internet](#internet)
   - [Utilities](#utilities)
+  - [Vim](#vim)
   - [Regular Expressions](#regular-expressions)
 
 ## Users
@@ -99,10 +99,6 @@ kidder.txt kiddo kidnews kidneypie
 - `$SHELL`: path to current shell binary
 - `export VAR=MyVar`: new env variavle for current session
 
-## Vim
-
-TODO
-
 ## System Information
 
 - `uname -a`: info on system
@@ -138,6 +134,11 @@ TODO
 - `uniq [options] [input] [output]`: report or omit repeated lines. `-u` print unique lines, `-D` print duplicate lines
 - `tee [file]`: read from standard input and write to standard output and file. `-a` append, do not overwrite.
 - `split [options] [size] [file] [prefix]`: output pieces of file to PREFIXaa, PREFIXab, ... in chunks of size size. `-b` size in bytes, `-l` size in lines, `-t char` use char as separator
+- `at [options] `: o
+
+## Vim
+
+TODO
 
 ## Regular Expressions
 
