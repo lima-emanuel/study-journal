@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>System Administration - My Study Journal</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "System Administration";
+        var mkdocs_page_input_path = "sysadmin.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Study Journal
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Programming Languages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../bash.md">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c/">C</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cpp/">C++</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cython/">Cython</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../go.md">Go</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jl/">Julia</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../py/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rust/">Rust</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../ansible.md">Ansible</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../ci.md">Continuous Integration/Delivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../aws.md">AWS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../azure.md">Azure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../docker.md">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../git.md">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../gitops.md">GitOps & ArgoCD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../jenkins.md">Jenkins</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../kata.md">Kata Containers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../k8s.md">Kubernetes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../micro.md">Microservices</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../podman.md">Podman</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../re.md">Release Engineering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../serverless.md">Serverless</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../sre.md">Site Reliability Engineering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../tekton.md">Tekton</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../terraform.md">Terraform</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">System Administration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#users">Users</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-system">File System</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#filesystem-hierarchy-standard">Filesystem Hierarchy Standard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#commands">Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#permissions">Permissions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shell">Shell</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#wildcards">Wildcards</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#commands_1">Commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#system-information">System Information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#internet">Internet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vim">Vim</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#regular-expressions">Regular Expressions</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software Engineering</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../agile.md">Agile Methods</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Study Journal</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Linux</li>
+      <li class="breadcrumb-item active">System Administration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="notes-on-system-administration">Notes on System Administration</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#notes-on-system-administration">Notes on System Administration</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#users">Users</a></li>
+<li><a href="#file-system">File System</a><ul>
+<li><a href="#filesystem-hierarchy-standard">Filesystem Hierarchy Standard</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#permissions">Permissions</a></li>
+</ul>
+</li>
+<li><a href="#shell">Shell</a><ul>
+<li><a href="#wildcards">Wildcards</a></li>
+<li><a href="#commands-1">Commands</a></li>
+<li><a href="#variables">Variables</a></li>
+</ul>
+</li>
+<li><a href="#system-information">System Information</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#internet">Internet</a></li>
+<li><a href="#utilities">Utilities</a></li>
+<li><a href="#vim">Vim</a></li>
+<li><a href="#regular-expressions">Regular Expressions</a></li>
+</ul>
+<h2 id="users">Users</h2>
+<ul>
+<li><code>passwd [options] [user]</code>: changes passwords for user accounts. A normal user may only change the password for their own account, while the superuser may change the password for any account. It also changes the account or associated password validity period.</li>
+<li><code>su [options] [-] [user]</code>: allows commands to be run with a substitute user and group ID. <code>-</code> starts the shell as a login shell. <code>-c command</code> passes a command.</li>
+</ul>
+<h2 id="file-system">File System</h2>
+<h3 id="filesystem-hierarchy-standard">Filesystem Hierarchy Standard</h3>
+<ul>
+<li><code>bin</code>: Essential command binaries</li>
+<li><code>boot</code>: Static files of the boot loader</li>
+<li><code>dev</code>: Device files</li>
+<li><code>etc</code>: Host-specific system configuration</li>
+<li><code>home</code>: Users directories</li>
+<li><code>lib</code>: Essential shared libraries and kernel modules</li>
+<li><code>media</code>: Mount point for removable media</li>
+<li><code>mnt</code>: Mount point for mounting a filesystem temporarily</li>
+<li><code>opt</code>: Add-on application software packages</li>
+<li><code>proc</code>: Kernel and process file system</li>
+<li><code>root</code>: Home directory for the root user</li>
+<li><code>run</code>: Data relevant to running processes</li>
+<li><code>sbin</code>: Essential system binaries</li>
+<li><code>srv</code>: Data for services provided by this system</li>
+<li><code>sys</code>: Kernel and system information</li>
+<li><code>usr/bin</code>: Most user commands</li>
+<li><code>usr/include</code>: Standard header files</li>
+<li><code>usr/lib</code>: Libraries for programming and packages</li>
+<li><code>usr/libexec</code>: Binaries run by other programs</li>
+<li><code>usr/local</code>: Local software</li>
+<li><code>usr/share</code>: Arch independent data</li>
+<li><code>tmp</code>: Temporary files</li>
+<li><code>var</code>: Variable data</li>
+<li><code>var/spool/cron</code>: Cron jobs' data</li>
+</ul>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>cmp [options] [file1] [file2]</code>: compare two files byte by byte.</li>
+<li><code>find [options] [start directory] -name [pattern]</code>: searches for files.</li>
+<li><code>plocate [pattern]</code>: searches for files. <code>sudo updatedb</code> to update its database.</li>
+<li><code>tree [options] [directory]</code>: a recursive directory listing program that produces a depth indented listing of files. <code>-L</code> sets the max display depth of the directory tree.</li>
+<li><code>cp [options] [origin] [destination]</code>: copy from <code>origin</code> to <code>destination</code>. <code>-i</code> asks before copying. <code>-r</code> recursive copy. <code>-t folder</code> copy everything from origin into folder. <code>-T</code> destination is a file.</li>
+<li><code>mv [options] [origin] [destination]</code>: move/rename from <code>origin</code> to <code>destination</code>. <code>-i</code> asks before moving. <code>-t folder</code> move everything from origin into folder. <code>-T</code> destination is a file.</li>
+<li><code>rm [options] [file]</code>: remove/rename <code>file</code>. <code>-i</code> asks before removing. <code>-r</code> recursive remove.</li>
+<li><code>ln -s [origin] [destination]</code>: soft link from <code>origin</code> to <code>destination</code>.</li>
+</ul>
+<h3 id="permissions">Permissions</h3>
+<ul>
+<li><code>d rwx rwx rwx</code>: if directory and read, write, execute for user, group and others</li>
+<li><code>groups [user]</code>: list the groups the user is a member of</li>
+<li><code>chgrp [options] [group] [file]</code>: change the group of the file</li>
+<li><code>chown [options] [user] [file]</code>: change the user of the file</li>
+<li><code>chmod u=rwx,g=rx,o=r [file]</code>: change the permissions of the file to the exact ones provided</li>
+<li><code>chmod u+wx [file]</code>: add permissions to the file</li>
+<li><code>chmod ug-wx [file]</code>: remove permissions from the file</li>
+</ul>
+<h2 id="shell">Shell</h2>
+<h3 id="wildcards">Wildcards</h3>
+<p>Wildcards are placeholders for omitted letters or numbers:</p>
+<ul>
+<li><code>?</code>: placeholder for one character</li>
+<li><code>*</code>: placeholder for zero or more characters</li>
+</ul>
+<pre><code class="language-bash">$ ls k?d*
+
+kidder.txt kiddo kidnews kidneypie
+</code></pre>
+<h3 id="commands_1">Commands</h3>
+<ul>
+<li><code>chsh [-s shell] [user]</code>: change users shell. <code>-l</code> lists installed shells.</li>
+</ul>
+<h3 id="variables">Variables</h3>
+<ul>
+<li><code>$SHELL</code>: path to current shell binary</li>
+<li><code>export VAR=MyVar</code>: new env variavle for current session</li>
+</ul>
+<h2 id="system-information">System Information</h2>
+<ul>
+<li><code>uname -a</code>: info on system</li>
+<li><code>df -h</code>: see all file systems</li>
+<li><code>du -h</code>: disk usage of files on current directory</li>
+<li><code>lsblk</code>: list block devices</li>
+<li><code>lsblk</code>: list block devices</li>
+<li><code>file [file]</code>: query what kind of file is it</li>
+<li><code>who [options]</code>: print logged users</li>
+<li><code>w</code>: print logged users and processes</li>
+<li><code>id [user]</code>: get user id</li>
+<li><code>set</code>: print all env variables</li>
+</ul>
+<h2 id="environment">Environment</h2>
+<p>TODO</p>
+<h2 id="internet">Internet</h2>
+<p>TODO</p>
+<h2 id="utilities">Utilities</h2>
+<ul>
+<li><code>apropos [options] [keyword]</code>: searches for <code>keyword</code> on manpages</li>
+<li><code>wc [options] [file]</code>: prints metrics from file. <code>-c</code>counts bytes, <code>-m</code> counts chars, <code>-l</code> counts lines, <code>-w</code> counts words.</li>
+<li><code>head [-n] [file]</code>: prints the first n lines of file</li>
+<li><code>tail [-n] [file]</code>: prints the last n lines of file</li>
+<li><code>grep [options] [pattern] [file]</code>: print lines that match pattern on file. If file is <code>-</code>, stdin is considered. <code>-c</code> just counts matches. <code>v</code> consider non matches</li>
+<li><code>sed 's/old/new/g' [file]</code>: replace all the occurrence of the pattern on the file</li>
+<li><code>awk -F, ‘{ print $2 “ “ $1 “ “ $7 }’ [file]</code>: print fields 2, 1 and 7 of file considering a comma delimited file</li>
+<li><code>sdiff -s [file1] [file2]</code>: prints the comparison of file1 and file2. <code>&lt;</code> if the line exists only in the first file, <code>&gt;</code> if the line exists only in the second file, <code>|</code> if they are different</li>
+<li><code>sort [options] [files...]</code>: sort lines of text files. <code>-t char</code> char delimited files, <code>+n</code> sort by the nth field, <code>-n</code> sort numerically</li>
+<li><code>uniq [options] [input] [output]</code>: report or omit repeated lines. <code>-u</code> print unique lines, <code>-D</code> print duplicate lines</li>
+<li><code>tee [file]</code>: read from standard input and write to standard output and file. <code>-a</code> append, do not overwrite.</li>
+<li><code>split [options] [size] [file] [prefix]</code>: output pieces of file to PREFIXaa, PREFIXab, ... in chunks of size size. <code>-b</code> size in bytes, <code>-l</code> size in lines, <code>-t char</code> use char as separator</li>
+<li><code>at [options]</code>: o</li>
+</ul>
+<h2 id="vim">Vim</h2>
+<p>TODO</p>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p>TODO</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rust/" class="btn btn-neutral float-left" title="Rust"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rust/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
