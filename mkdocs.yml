@@ -1,34 +1,35 @@
 site_name: My Study Journal
 theme: readthedocs
 nav:
-      - Programming Languages:
-              - Bash: bash.md
-              - C: c.md
-              - C++: cpp.md
-              - Cython: cython.md
-              - Go: go.md
-              - Julia: jl.md
-              - Python: py.md
-              - Rust: rust.md
-      - DevOps:
-              - Ansible: ansible.md
-              - Continuous Integration/Delivery: ci.md
-              - AWS: aws.md
-              - Azure: azure.md
-              - Docker: docker.md
-              - Git: git.md
-              - GitOps & ArgoCD: gitops.md
-              - Jenkins: jenkins.md
-              - Kata Containers: kata.md
-              - Kubernetes: k8s.md
-              - Microservices: micro.md
-              - Podman: podman.md
-              - Release Engineering: re.md
-              - Serverless: serverless.md
-              - Site Reliability Engineering: sre.md
-              - Tekton: tekton.md
-              - Terraform: terraform.md
-      - Linux:
-              - System Administration: sysadmin.md
-      - Software Engineering:
-              - Agile Methods: agile.md
+    - Programming Languages:
+          - Bash: bash.md
+          - C: c.md
+          - C++: cpp.md
+          - Cython: cython.md
+          - Go: go.md
+          - Julia: jl.md
+          - Python: py.md
+          - Rust: rust.md
+    - DevOps:
+          - Ansible: ansible.md
+          - Continuous Integration/Delivery: ci.md
+          - AWS: aws.md
+          - Azure: azure.md
+          - Docker: docker.md
+          - Git: git.md
+          - GitOps & ArgoCD: gitops.md
+          - Jenkins: jenkins.md
+          - Kata Containers: kata.md
+          - Kubernetes: k8s.md
+          - Microservices: micro.md
+          - OpenNebula: one.md
+          - Podman: podman.md
+          - Release Engineering: re.md
+          - Serverless: serverless.md
+          - Site Reliability Engineering: sre.md
+          - Tekton: tekton.md
+          - Terraform: terraform.md
+    - Linux:
+          - System Administration: sysadmin.md
+    - Software Engineering:
+          - Agile Methods: agile.md
