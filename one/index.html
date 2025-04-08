@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>OpenNebula - My Study Journal</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "OpenNebula";
+        var mkdocs_page_input_path = "one.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> My Study Journal
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Programming Languages</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../bash.md">Bash</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c/">C</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cpp/">C++</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cython/">Cython</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../go.md">Go</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../jl/">Julia</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../py/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rust/">Rust</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="" href="../ansible.md">Ansible</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../ci.md">Continuous Integration/Delivery</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../aws/">AWS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../azure.md">Azure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../docker.md">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../git.md">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../gitops.md">GitOps & ArgoCD</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../jenkins.md">Jenkins</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../kata.md">Kata Containers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../k8s.md">Kubernetes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../micro.md">Microservices</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">OpenNebula</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#typical-architecture">Typical Architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sunstone">Sunstone</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cli">CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#virtual-networks">Virtual Networks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#marketplace">Marketplace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#virtual-machines">Virtual Machines</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#users-groups-and-permissions">Users, Groups and Permissions</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../podman.md">Podman</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../re.md">Release Engineering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../serverless.md">Serverless</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../sre.md">Site Reliability Engineering</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../tekton.md">Tekton</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../terraform.md">Terraform</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Linux</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../sysadmin/">System Administration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Software Engineering</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../agile.md">Agile Methods</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">My Study Journal</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">DevOps</li>
+      <li class="breadcrumb-item active">OpenNebula</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="notes-on-opennebula">Notes on OpenNebula</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#notes-on-opennebula">Notes on OpenNebula</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#typical-architecture">Typical Architecture</a></li>
+<li><a href="#sunstone">Sunstone</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#cli">CLI</a></li>
+<li><a href="#virtual-networks">Virtual Networks</a></li>
+<li><a href="#marketplace">Marketplace</a></li>
+<li><a href="#storage">Storage</a></li>
+<li><a href="#virtual-machines">Virtual Machines</a></li>
+<li><a href="#users-groups-and-permissions">Users, Groups and Permissions</a></li>
+</ul>
+<h2 id="typical-architecture">Typical Architecture</h2>
+<p><img alt="Typical Architecture" src="../img/arch.png" title="Typical Architecture" /></p>
+<h2 id="sunstone">Sunstone</h2>
+<ul>
+<li>Is the graphical user interface of OpenNebula;</li>
+<li>Responsible for serving the Web GUI, oned service, perform environment monitoring as well as management of network, storage or VMs</li>
+<li>Listens on 2616/tcp;</li>
+<li>Same website for admins and users, but has different views based on permissions;</li>
+<li>Each user can set SSH keys, 2FA and labels on his account;</li>
+<li>Labels can be used to categorize resources.</li>
+<li>Inspect <code>/var/log/one/oned.log</code> and <code>/var/log/one/monitor.log</code> log files in case there is an error in the frontend.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>To make sure the state of the cloud is persistent, OpenNebula will keep it stored in a SQL database;</li>
+<li>The options are SQLite (automatic), MariaDB and MySQL;</li>
+<li>This is configured on <code>/etc/one/oned.conf</code> at the host;</li>
+<li>During the installation of the software the system user <code>oneadmin</code> will be created. Services and CLI tools are going to be used by this user;</li>
+<li>During the first launch OpenNebula is going to create a Sunstone admin user for the deployment. Credentials are stored in a dedicated file <code>.one/one_auth</code>;</li>
+<li>We must configure hosts that are going to run the VMs before adding them to a OpenNebula cluster and provide them with monitoring and virtualization drivers;</li>
+<li>To configure the host we must add the OpenNebula repo, install <code>opennebula-node-kvm</code> and configure passwordless ssh connection from the Sunstone node to the host and vice versa;</li>
+<li>Then on the Sunstone section <code>Infrastructure/Hosts</code>, add a KVM host by putting its IP;</li>
+<li>Through the CLI:</li>
+</ul>
+<pre><code class="language-bash">sudo -i -u oneadmin
+
+onehost create 'node2.dev.corp' -i kvm -v kvm
+
+onehost show 1
+</code></pre>
+<h2 id="cli">CLI</h2>
+<ul>
+<li><code>oneuser</code>: Manage Users</li>
+<li><code>oneimage</code>: Manage Images</li>
+<li><code>onegroup</code>: Manage Groups</li>
+<li><code>onetemplate</code>: Manage Templates</li>
+<li><code>oneacl</code>: Manage ACLs</li>
+<li><code>oneacct</code>: Accounting Tool</li>
+<li><code>onehost</code>: Manage Hosts</li>
+<li><code>onemarket</code>: Marketplace Tool</li>
+<li><code>onecluster</code>: Manage Clusters</li>
+<li><code>onedb</code>: DB Tool</li>
+<li><code>onevnet</code>: Manage Networks</li>
+<li><code>oneflow</code>: Manage flows (services)</li>
+<li><code>onedatastore</code>: Manage Datastores</li>
+<li><code>onemarketapp</code>: Import marketapps</li>
+<li><code>oneshowback</code>: Showback</li>
+<li><code>onevrouter</code>: Manage virtual routers</li>
+<li><code>onevdc</code>: Manage VDCs</li>
+<li><code>onesecgroup</code>: Manage sec. groups</li>
+<li><code>onevcenter</code>: Import vCenter resources</li>
+<li><code>oneprovision</code>: Manage provisions</li>
+<li><code>onecfg</code>: Manage configuration files</li>
+<li><code>oneprovider</code>: Manage providers</li>
+<li><code>onezone</code>: Manage zones onehook Manage hooks</li>
+</ul>
+<p>Flags to output in a machine-readable format:</p>
+<ul>
+<li><code>-j</code> for JSON</li>
+<li><code>-x</code> for XML</li>
+<li><code>-y</code> for YAML</li>
+</ul>
+<h2 id="virtual-networks">Virtual Networks</h2>
+<ul>
+<li>Can be created under the Networks section of Sunstone;</li>
+<li>Can be a <code>Bridge</code>, <code>Open vSwitch</code>, <code>VXLAN</code>, etc;</li>
+<li>On the <code>Addresses</code> tab, we can set the IP range of that network;</li>
+<li>On the <code>Context</code> tab, we can set gateway, DNS and IP assignment method (DHCP or static);</li>
+<li>On the <code>Virtual Network</code> subsection, we can make a reservation on a certain network, meaning a portion of the network is going to be locked and available only to specific resources. The network is partitioned by IP address;</li>
+<li>On the <code>Lease</code> tab, we can also hold a specific IP address on a virtual network, so it cannot be used nor reserved;</li>
+<li>The <code>Network Templates</code> section can be used to speed the creation of new virtual networks;</li>
+<li>We can use the CLI as such: <code>onevnet create &lt;path/to/file&gt;</code> where file is a textfile containing parameters;</li>
+</ul>
+<h2 id="marketplace">Marketplace</h2>
+<ul>
+<li>Is the repository of pre-build images, VM templates and service templates;</li>
+<li>Can be public or private;</li>
+<li>The public marketplace contains ready-to-use images;</li>
+<li>These images are based on the vanilla ISOs, but with virtualization packages;</li>
+<li>The different marketplaces configured are found under the <code>Storage</code> section, <code>Marketplaces</code> subsection;</li>
+<li>The <code>Apps</code> subsection contains all images available to the user;</li>
+</ul>
+<h2 id="storage">Storage</h2>
+<ul>
+<li>We don't create a VM based on an image, but rather on a template. The template points to an image;</li>
+<li>Multiple VM templates can use the same image;</li>
+<li>The <code>Images</code> subsection contains the downloaded images ready to be used, as well as system snapshots, which are considered an image;</li>
+<li>A <code>datastore</code> is the location where files are saved. It can be:</li>
+<li><code>Images Datastore</code>, which stores the base operating system images, persistent
+data volumes, CD-ROMs.</li>
+<li><code>System Datastore</code> holds disks of running Virtual Machines. Disk are moved
+from/to the Images when the VMs are deployed/terminated.</li>
+<li><code>Files &amp; Kernels Datastore</code> to store plain files (not disk images), e.g. kernels,
+ramdisks, or contextualization files.</li>
+<li>Create a new datastore at <code>Storage/Datastores</code> on Sunstone;</li>
+<li>Or use the CLI <code>onedatastore create &lt;path/to/file&gt;</code> where file is a textfile containing parameters;</li>
+<li><code>Services</code> are images that contain an app (such as Wordpress) along with an OS. They are also stored on a datastore.</li>
+</ul>
+<h2 id="virtual-machines">Virtual Machines</h2>
+<ul>
+<li>Currently instantiated VMs can be found at <code>Instances/VMs</code> on Sunstone or queried through the CLI with <code>onevm</code>;</li>
+<li><code>VM Templates</code> are a textual representation of a VM;</li>
+<li>It contains pointers to images, parameters and other configurations;</li>
+<li>Some of those can be adjusted only by the administrator;</li>
+<li>Services also rely on VM Templates;</li>
+<li>VM Templates can be edited on the <code>Templates</code> section or queried through the CLI with <code>onetemplate</code>;</li>
+<li>VMs can be deployed alone or in batches;</li>
+<li>VMs can be accessed from Sunstone via VNC;</li>
+<li>VMs can be backed up or turned into an Image;</li>
+<li>We can make a snapshot of the VM's disk or of the entire VM;</li>
+<li>Restoring a disk snapshot is only possible with the VM powered down;</li>
+<li>Restoring a VM snapshot is possible at any time;</li>
+<li>VM configuration can be changed while it is running. It'll go into a hotplug state to apply the changes;</li>
+<li>VMs can be deployed through the CLI <code>onevm create --cpu 1 --memory 1024 --disk 2 --nic 5</code>;</li>
+</ul>
+<h2 id="users-groups-and-permissions">Users, Groups and Permissions</h2>
+<ul>
+<li>Permissions exists for <code>owners</code>, <code>groups</code> and <code>others</code>;</li>
+<li>The levels are <code>use</code>, <code>manage</code> and <code>admin</code>;</li>
+<li><code>Use</code> is for operations that do not modify the resource, <code>manage</code> for the ones that modify and <code>admin</code> for high responsability modifications;</li>
+<li>Each user is going to be attached to at least one group;</li>
+<li>Each group may have a separate group administrator. Group administrators are delegated with permissions to manage groups resources and add new users;</li>
+<li>By default, OpenNebula has two groups - <code>oneadmin</code> and <code>users</code>;</li>
+<li>By default, OpenNebula also going to have two users - oneadmin (if one_auth wasn't altered) and serveradmin(service user used for internal purposes);</li>
+<li>Groups can be created at <code>System/Groups</code>on Sunstone or through the CLI <code>onegroup create --name ops --admin_user ops-admin --admin_password 'Pa$$w0rd'</code>;</li>
+<li>can be created at <code>System/Users</code>on Sunstone or through the CLI <code>oneuser create basic_user 'Pa$$w0rd' --group 102</code>;</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../aws/" class="btn btn-neutral float-left" title="AWS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sysadmin/" class="btn btn-neutral float-right" title="System Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../aws/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sysadmin/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
