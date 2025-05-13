@@ -1,35 +1,5 @@
 # Notes on Julia
 
-## Table of Contents
-
-- [Notes on Julia](#notes-on-julia)
-  - [Table of Contents](#table-of-contents)
-  - [Basics](#basics)
-  - [Data Types and Structures](#data-types-and-structures)
-    - [Scalar Types](#scalar-types)
-    - [Const values](#const-values)
-    - [Basic Math](#basic-math)
-    - [Strings](#strings)
-    - [Arrays](#arrays)
-    - [Multidimensional and Nested Arrays](#multidimensional-and-nested-arrays)
-    - [Tuples](#tuples)
-    - [Named Tuples](#named-tuples)
-    - [Dictionaries](#dictionaries)
-    - [Sets](#sets)
-    - [Memory and Copy](#memory-and-copy)
-    - [Random Numbers](#random-numbers)
-  - [Basic Syntax](#basic-syntax)
-    - [Functions](#functions)
-  - [Custom Types](#custom-types)
-  - [I/O](#io)
-  - [Metaprogramming](#metaprogramming)
-  - [Exceptions](#exceptions)
-  - [REPL](#repl)
-  - [DataFrames](#dataframes)
-  - [Performance](#performance)
-  - [Plotting](#plotting)
-  - [References](#references)
-
 ## Basics
 
 Julia is a high-level, general-purpose dynamic programming language, most commonly used for numerical analysis and computational science. Distinctive aspects of Julia's design include a type system with parametric polymorphism and the use of multiple dispatch as a core programming paradigm, efficient garbage collection, and a just-in-time (JIT) compiler (with support for ahead-of-time compilation).

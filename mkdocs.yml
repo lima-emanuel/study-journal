@@ -1,35 +1,87 @@
 site_name: My Study Journal
-theme: readthedocs
+site_url: https://lima-emanuel.github.io/study-journal/
+repo_url: https://github.com/lima-emanuel/study-journal
+theme:
+      name: material
+      language: en
+      icon:
+            logo: material/library
+            repo: fontawesome/brands/github
+      font:
+            text: Noto Sans
+            code: Noto Sans Mono
+      palette:
+            # Palette toggle for light mode
+            - scheme: default
+              toggle:
+                    icon: material/weather-night
+                    name: Switch to dark mode
+            # Palette toggle for dark mode
+            - scheme: slate
+              toggle:
+                    icon: material/weather-sunny
+                    name: Switch to light mode
+      features:
+            - navigation.instant
+            - navigation.instant.progress
+            - navigation.tabs
+            - navigation.tabs.sticky
+            - navigation.prune
+            - navigation.top
+            - navigation.footer
+            - content.code.copy
+plugins:
+      - search
+      - privacy
+extra:
+      social:
+            - icon: fontawesome/brands/github
+              link: https://github.com/lima-emanuel
+              name: GitHub
+markdown_extensions:
+      - pymdownx.highlight:
+              anchor_linenums: true
+              line_spans: __span
+              pygments_lang_class: true
+      - pymdownx.inlinehilite
+      - pymdownx.snippets
+      - pymdownx.superfences
+      - admonition
+      - pymdownx.details
+      - pymdownx.arithmatex:
+              generic: true
+extra_javascript:
+      - javascripts/mathjax.js
+      - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 nav:
-    - Programming Languages:
-          - Bash: bash.md
-          - C: c.md
-          - C++: cpp.md
-          - Cython: cython.md
-          - Go: go.md
-          - Julia: jl.md
-          - Python: py.md
-          - Rust: rust.md
-    - DevOps:
-          - Ansible: ansible.md
-          - Continuous Integration/Delivery: ci.md
-          - AWS: aws.md
-          - Azure: azure.md
-          - Docker: docker.md
-          - Git: git.md
-          - GitOps & ArgoCD: gitops.md
-          - Jenkins: jenkins.md
-          - Kata Containers: kata.md
-          - Kubernetes: k8s.md
-          - Microservices: micro.md
-          - OpenNebula: one.md
-          - Podman: podman.md
-          - Release Engineering: re.md
-          - Serverless: serverless.md
-          - Site Reliability Engineering: sre.md
-          - Tekton: tekton.md
-          - Terraform: terraform.md
-    - Linux:
-          - System Administration: sysadmin.md
-    - Software Engineering:
-          - Agile Methods: agile.md
+      - Programming Languages:
+              - Bash: bash.md
+              - C: c.md
+              - C++: cpp.md
+              - Cython: cython.md
+              - Go: go.md
+              - Julia: jl.md
+              - Python: py.md
+              - Rust: rust.md
+      - DevOps:
+              - Ansible: ansible.md
+              - AWS: aws.md
+              - Azure: azure.md
+              - Continuous Integration/Delivery: ci.md
+              - Docker: docker.md
+              - Git: git.md
+              - GitOps & ArgoCD: gitops.md
+              - Jenkins: jenkins.md
+              - Kubernetes: k8s.md
+              - Microservices: micro.md
+              - OpenNebula: one.md
+              - Podman: podman.md
+              - Release Engineering: re.md
+              - Serverless: serverless.md
+              - Site Reliability Engineering: sre.md
+              - Tekton: tekton.md
+              - Terraform: terraform.md
+      - Linux:
+              - System Administration: sysadmin.md
+      - Software Engineering:
+              - Agile Methods: agile.md

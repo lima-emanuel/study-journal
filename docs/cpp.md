@@ -1,31 +1,5 @@
 # Notes on C++
 
-## Table of Contents
-
-- [Notes on C++](#notes-on-c)
-  - [Table of Contents](#table-of-contents)
-  - [Basics](#basics)
-  - [User-Defined Types](#user-defined-types)
-  - [Modularity](#modularity)
-  - [Classes](#classes)
-    - [Constructors](#constructors)
-    - [Copy Constructors](#copy-constructors)
-    - [Copy Assignment](#copy-assignment)
-    - [Move Constructor](#move-constructor)
-  - [Operations](#operations)
-  - [Templates](#templates)
-  - [Generic Programming](#generic-programming)
-  - [Standard Library](#standard-library)
-  - [Strings and Regex](#strings-and-regex)
-  - [I/O](#io)
-  - [Containers](#containers)
-  - [Algorithms](#algorithms)
-  - [Utilities](#utilities)
-  - [Numerics](#numerics)
-  - [Concurrency](#concurrency)
-  - [References](#references)
-
-
 ## Basics
 
 The minimal "hello world" C++ program:

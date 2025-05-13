@@ -1,25 +1,5 @@
 # Notes on System Administration
 
-## Table of Contents
-
-- [Notes on System Administration](#notes-on-system-administration)
-  - [Table of Contents](#table-of-contents)
-  - [Users](#users)
-  - [File System](#file-system)
-    - [Filesystem Hierarchy Standard](#filesystem-hierarchy-standard)
-    - [Commands](#commands)
-    - [Permissions](#permissions)
-  - [Shell](#shell)
-    - [Wildcards](#wildcards)
-    - [Commands](#commands-1)
-    - [Variables](#variables)
-  - [System Information](#system-information)
-  - [Environment](#environment)
-  - [Internet](#internet)
-  - [Utilities](#utilities)
-  - [Vim](#vim)
-  - [Regular Expressions](#regular-expressions)
-
 ## Users
 
 - `passwd [options] [user]`: changes passwords for user accounts. A normal user may only change the password for their own account, while the superuser may change the password for any account. It also changes the account or associated password validity period.

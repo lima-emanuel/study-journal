@@ -1,19 +1,5 @@
 # Notes on OpenNebula
 
-## Table of Contents
-
-- [Notes on OpenNebula](#notes-on-opennebula)
-  - [Table of Contents](#table-of-contents)
-  - [Typical Architecture](#typical-architecture)
-  - [Sunstone](#sunstone)
-  - [Configuration](#configuration)
-  - [CLI](#cli)
-  - [Virtual Networks](#virtual-networks)
-  - [Marketplace](#marketplace)
-  - [Storage](#storage)
-  - [Virtual Machines](#virtual-machines)
-  - [Users, Groups and Permissions](#users-groups-and-permissions)
-
 ## Typical Architecture
 
 ![Typical Architecture](img/arch.png "Typical Architecture")
