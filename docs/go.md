@@ -77,6 +77,33 @@ func split(sum int) (x, y int) {
 }
 ```
 
+Functions are values too. They can be passed around just like other values:
+
+```go
+func compute(fn func(float64, float64) float64) float64 {
+    return fn(3, 4)
+}
+
+func main() {
+    hypot := func(x, y float64) float64 {
+        return math.Sqrt(x*x + y*y)
+    }
+    fmt.Println(hypot(5, 12))
+    fmt.Println(compute(hypot))
+    fmt.Println(compute(math.Pow))
+}
+```
+
+Functions often return an error value, and calling code should handle errors by testing whether the error equals nil. A nil error denotes success; a non-nil error denotes failure.
+
+```go
+i, err := strconv.Atoi("42")
+if err != nil {
+    fmt.Printf("couldn't convert number: %v\n", err)
+    return
+}
+```
+
 ### Types
 
 `var` statement declares a list of variables; as in function argument lists, the type is last. A `var` statement can be at package or function level.
@@ -248,7 +275,7 @@ a[1] = "World"
 primes := [6]int{2, 3, 5, 7, 11, 13}
 ```
 
-An array's length is part of its type, so arrays cannot be resized.
+An array's length is part of its type, so arrays cannot be resized. An array variable denotes the entire array; it is not a pointer to the first array element. This means that when you assign or pass around an array value you will make a copy of its contents. To avoid the copy you could pass a pointer to the array, but then that’s a pointer to an array, not an array. One way to think about arrays is as a sort of struct but with indexed rather than named fields: a fixed-size composite value.
 
 A slice is a dynamically-sized, flexible view into the elements of an array:
 
@@ -303,6 +330,90 @@ s = s[2:]
 
 The zero value of a slice is nil. A `nil` slice has a length and capacity of 0 and has no underlying array.
 
+The `make` function allocates a zeroed array and returns a slice that refers to that array:
+
+```go
+a := make([]int, 5)     // len(a)=5, cap(a)=5
+b := make([]int, 0, 5) // len(b)=0, cap(b)=5
+b = b[:cap(b)]        // len(b)=5, cap(b)=5
+b = b[1:]            // len(b)=4, cap(b)=4
+```
+
+Slices can contain any type, including other slices:
+
+```go
+board := [][]string{
+    []string{"_", "_", "_"},
+    []string{"_", "_", "_"},
+    []string{"_", "_", "_"},
+}
+```
+
+The `append` built-in function appends elements to the end of a slice. If it has sufficient capacity, the destination is resliced to accommodate the new elements. If it does not, a new underlying array will be allocated. Append returns the updated slice. It is therefore necessary to store the result of append, often in the variable holding the slice itself:
+
+```go
+slice = append(slice, elem1, elem2)
+slice = append(slice, anotherSlice...)
+```
+
+To increase the capacity of a slice one must create a new, larger slice and copy the contents of the original slice into it:
+
+```go
+t := make([]byte, len(s), (cap(s)+1)*2)
+copy(t, s)
+s = t
+```
+
+A `map` maps keys to values. The zero value of a map is `nil`. A nil map has no keys, nor can keys be added. The make function returns a map of the given type, initialized and ready for use.
+
+```go
+type Vertex struct {
+    Lat, Long float64
+}
+
+var m map[string]Vertex
+
+func main() {
+    m = make(map[string]Vertex)
+    m["Bell Labs"] = Vertex{
+        40.68433, -74.39967,
+    }
+
+    // Or as a literal
+    var m = map[string]Vertex{
+    "Bell Labs": Vertex{
+        40.68433, -74.39967,
+    },
+    "Google": Vertex{
+        37.42202, -122.08408,
+    },
+    }
+
+    // Or even
+    var m = map[string]Vertex{
+        "Bell Labs": {40.68433, -74.39967},
+        "Google":    {37.42202, -122.08408},
+    }
+}
+```
+
+Mutate maps like so:
+
+```go
+// Insert
+m[key] = elem
+
+// Retrieve
+elem = m[key]
+
+// Delete
+delete(m, key)
+
+// Test if present
+// If key is in m, ok is true
+elem, ok := m[key]
+```
+
 ### Control Flow
 
 `For` is the only loop available:
@@ -331,7 +442,24 @@ for {
 }
 ```
 
-Conditional:
+The range form of the for loop iterates over a slice or map:
+
+```go
+var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+func main() {
+    // Two values are returned for each iteration.
+    // The first is the index,
+    // and the second is a copy of the element at that index.
+    for i, v := range pow {
+        fmt.Printf("2**%d = %d\n", i, v)
+    }
+}
+```
+
+You can skip the index or value by assigning to `_`.
+
+Conditionals:
 
 ```go
 func sqrt(x float64) string {
@@ -395,19 +523,182 @@ func main() {
 }
 ```
 
-Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order.
+Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order. A deferred function’s arguments are evaluated when the defer statement is evaluated. Also, deferred functions may read and assign to the returning function’s named return values.
 
 ## Methods and Interfaces
 
-f
+### Methods
+
+A method is a function with a special receiver argument. The receiver appears in its own argument list between the func keyword and the method name:
+
+```go
+type Vertex struct {
+    X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func main() {
+    v := Vertex{3, 4}
+    fmt.Println(v.Abs())
+}
+```
+
+You can only declare a method with a receiver whose type is defined in the same package as the method.
+
+You can declare methods with pointer receivers. This means the receiver type has the literal syntax `*T` for some type T. (Also, T cannot itself be a pointer such as `*int`). Methods with pointer receivers can modify the value to which the receiver points (as Scale does here). With a value receiver, the method operates on a copy of the original value. (This is the same behavior as for any other function argument). The method must have a pointer receiver to change the Vertex value declared:
+
+```go
+type Vertex struct {
+    X, Y float64
+}
+
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func (v Vertex) Scale(f float64) {
+    v.X = v.X * f
+    v.Y = v.Y * f
+}
+
+func main() {
+    v := Vertex{3, 4}
+    v.Scale(10)
+    fmt.Println(v)
+}
+```
+
+Functions with a pointer argument must take a pointer, while methods with pointer receivers take either a value or a pointer. Functions that take a value argument must take a value of that specific type, while methods with value receivers take either a value or a pointer as the receiver when they are called.
+
+Two reasons to use a pointer receiver:
+
+- The method can modify the value that its receiver points to.
+- To avoid copying the value on each method call.
+
+All methods on a given type should have either value or pointer receivers, but not a mixture of both.
+
+### Interfaces
+
+An interface type is defined as a set of method signatures. A value of interface type can hold any value that implements those methods. A type implements an interface by implementing its methods. There is no explicit declaration of intent, no "implements" keyword. Implicit interfaces decouple the definition of an interface from its implementation, which could then appear in any package without prearrangement.
+
+Example: the `fmt` package looks for the built-in `fmt.Stringer` interface to print values:
+
+```go
+type Stringer interface {
+    String() string
+}
+```
+
+So one can implement `Stringer` on one's type to customize printing:
+
+```go
+type IPAddr [4]byte
+
+func (ip IPAddr) String() string {
+    return fmt.Sprintf("%v.%v.%v.%v", ip[0], ip[1], ip[2], ip[3])
+}
+
+func main() {
+    hosts := map[string]IPAddr{
+       "loopback":  {127, 0, 0, 1},
+       "googleDNS": {8, 8, 8, 8},
+    }
+    for name, ip := range hosts {
+       fmt.Printf("%v: %v\n", name, ip)
+    }
+}
+```
+
+Another important interface is `error`:
+
+```go
+type error interface {
+    Error() string
+}
+```
 
 ## Generics
 
-f
+The type parameters of a function appear between brackets, before the function's arguments:
+
+```go
+func Index[T comparable](s []T, x T) int
+```
+
+This declaration means that s is a slice of any type T that fulfills the built-in constraint comparable. x is also a value of the same type.
+
+A type can be parameterized with a type parameter, which could be useful for implementing generic data structures.
+
+```go
+type List[T any] struct {
+    next *List[T]
+    val  T
+}
+```
 
 ## Concurrency
 
-f
+A *goroutine* is a lightweight thread managed by the Go runtime.
+
+```go
+go f(x, y, z)
+```
+
+The evaluation of `f`, `x`, `y`, and `z` happens in the current goroutine and the execution of f happens in the new goroutine. Goroutines run in the same address space, so access to shared memory must be synchronized. The sync package provides useful primitives.
+
+*Channels* are a typed conduit through which you can send and receive values with the channel operator, `<-`.
+
+```go
+ch <- v    // Send v to channel ch.
+v := <-ch  // Receive from ch, and
+           // assign value to v.
+```
+
+Channels must be created before use:
+
+```go
+ch := make(chan int)
+```
+
+By default, sends and receives block until the other side is ready. This allows goroutines to synchronize without explicit locks or condition variables.
+
+Channels can be buffered. Provide the buffer length as the second argument to `make` to initialize a buffered channel:
+
+```go
+ch := make(chan int, 100)
+```
+
+A sender can close a channel to indicate that no more values will be sent. Receivers can test whether a channel has been closed by assigning a second parameter to the receive expression:
+
+```go
+v, ok := <-ch
+```
+
+`ok` is `false` if there are no more values to receive and the channel is closed. A loop `for i := range c` receives values from the channel repeatedly until it is closed. Only the sender should close a channel, never the receiver. Sending on a closed channel will cause a panic. Channels aren't like files; you don't usually need to close them. Closing is only necessary when the receiver must be told there are no more values coming, such as to terminate a range loop.
+
+```go
+func fibonacci(n int, c chan int) {
+    x, y := 0, 1
+    for i := 0; i < n; i++ {
+        c <- x
+     x, y = y, x+y
+    }
+    close(c)
+}
+
+func main() {
+    c := make(chan int, 10)
+    go fibonacci(cap(c), c)
+    for i := range c {
+        fmt.Println(i)
+    }
+}
+```
+
+The select statement lets a goroutine wait on multiple communication operations. A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
 
 ## Testing
 
@@ -420,3 +711,39 @@ f
 ## Low Level
 
 f
+
+## Standard Library
+
+### JSON
+
+To encode JSON data we use the `Marshal` function:
+
+```go
+// Given this data structure:
+type Message struct {
+    Name string
+    Body string
+    Time int64
+}
+
+// And this instance:
+m := Message{"Alice", "Hello", 1294706395881547000}
+
+// We can marshall m:
+b, err := json.Marshal(m)
+
+// If err is nil:
+b == []byte(`{"Name":"Alice","Body":"Hello","Time":1294706395881547000}`)
+```
+
+To encode JSON data we use the `Unmarshal` function:
+
+```go
+// Create a place where the decoded data will be stored
+var m Message
+
+// Call json.Unmarshal, passing it a []byte of JSON data and a pointer to m
+err := json.Unmarshal(b, &m)
+
+// If err is nil, b will be stored in m
+```
