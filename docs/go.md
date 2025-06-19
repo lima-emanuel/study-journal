@@ -30,8 +30,6 @@ func main() {
 
 ### Functions
 
-f
-
 Syntax:
 
 ```go
@@ -702,15 +700,15 @@ The select statement lets a goroutine wait on multiple communication operations.
 
 ## Testing
 
-f
+TODO
 
 ## Reflection
 
-f
+TODO
 
 ## Low Level
 
-f
+TODO
 
 ## Standard Library
 
