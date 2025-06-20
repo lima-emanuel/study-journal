@@ -72,6 +72,7 @@ nav:
               #- Git: git.md
               #- GitOps & ArgoCD: gitops.md
               #- Jenkins: jenkins.md
+              - JSON: json.md
               #- Kubernetes: k8s.md
               #- Microservices: micro.md
               - OpenNebula: one.md
@@ -81,6 +82,7 @@ nav:
               #- Site Reliability Engineering: sre.md
               #- Tekton: tekton.md
               #- Terraform: terraform.md
+              - YAML: yaml.md
       - Linux:
               - System Administration: sysadmin.md
       - Software Engineering:
