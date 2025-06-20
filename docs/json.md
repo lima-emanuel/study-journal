@@ -11,11 +11,11 @@ JSON in its purest form has no actual comments, but most parsers will accept C-s
 
 Supported data types:
 
-- Strings: "hello", "\"A quote.\"", "\u0abe", "Newline.\n"
-- Numbers: 23, 0.11, 12e10, 3.141e-10, 1.23e+4
-- Objects: { "key": "value" }
-- Arrays: ["Values"]
-- Miscellaneous: true, false, null
+- Strings: `"hello"`, `"\"A quote.\""`, `"\u0abe"`, `"Newline.\n"`
+- Numbers: `23`, `0.11`, `12e10`, `3.141e-10`, `1.23e+4`
+- Objects: `{ "key": "value" }`
+- Arrays: `["Values"]`
+- Miscellaneous: `true`, `false`, `null`
 
 ```json
 {

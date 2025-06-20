@@ -7,9 +7,15 @@
 Programs start running in package `main`. Syntax for imports is:
 
 ```go
+// Single line comment
+
+/* Multi-
+  line comment */
+
 import (
     "fmt"
-    "math/rand"
+    m "math/rand" // Math library with local alias m.
+    _ "net/http/pprof" // Profiling library imported only for side effects
 )
 ```
 
@@ -23,6 +29,7 @@ import (
     "math"
 )
 
+// Main is special. It is the entry point for the executable program.
 func main() {
     fmt.Println(math.Pi)
 }
@@ -102,6 +109,39 @@ if err != nil {
 }
 ```
 
+Function literals are closures:
+
+```go
+xBig := func() bool {
+    return x > 10000 // References x declared elsewhere.
+}
+```
+
+Function factories:
+
+```go
+func functionFactory(my_string string) func(before, after string) string {
+    return func(before, after string) string {
+        return fmt.Sprintf("%s %s %s", before, my_string, after) // new string
+    }
+}
+```
+
+Functions can have variadic parameters.
+
+```go
+func variadicParams(myStrings ...any) { // any is an alias for interface{}
+    // Iterate each value of the variadic.
+    // The underscore here is ignoring the index argument of the array.
+    for _, param := range myStrings {
+        fmt.Println("param:", param)
+    }
+
+    // Pass variadic value as a variadic parameter.
+    fmt.Println("params:", fmt.Sprintln(myStrings...))
+}
+```
+
 ### Types
 
 `var` statement declares a list of variables; as in function argument lists, the type is last. A `var` statement can be at package or function level.
@@ -178,6 +218,9 @@ func main() {
     fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
     fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
     fmt.Printf("Type: %T Value: %v\n", z, z)
+
+    // Conversion syntax with a short declaration.
+    n := byte('\n') // byte is an alias for uint8.
 }
 ```
 
@@ -271,6 +314,10 @@ a[0] = "Hello"
 a[1] = "World"
 
 primes := [6]int{2, 3, 5, 7, 11, 13}
+
+// Arrays have value semantics.
+a4_cpy := a4      // a4_cpy is a copy of a4, two separate instances.
+a4_cpy[0] = 25    // Only a4_cpy is changed, a4 stays the same.
 ```
 
 An array's length is part of its type, so arrays cannot be resized. An array variable denotes the entire array; it is not a pointer to the first array element. This means that when you assign or pass around an array value you will make a copy of its contents. To avoid the copy you could pass a pointer to the array, but then that’s a pointer to an array, not an array. One way to think about arrays is as a sort of struct but with indexed rather than named fields: a fixed-size composite value.
@@ -287,6 +334,10 @@ var s []int = primes[1:4]
 
 // Changing the elements of a slice modifies the corresponding elements of its underlying array.
 // Other slices that share the same underlying array will see those changes.
+
+// Slices (as well as maps and channels) have reference semantics.
+s3_cpy := s3     // Both variables point to the same instance.
+s3_cpy[0] = 0    // Which means both are updated.
 ```
 
 Slice literals build and array literal and reference it:
@@ -509,6 +560,18 @@ case t.Hour() < 17:
 default:
     fmt.Println("Good evening.")
 }
+
+// Type switch allows switching on the type of something instead of value
+    var data interface{}
+    data = ""
+    switch c := data.(type) {
+    case string:
+        fmt.Println(c, "is a string")
+    case int64:
+        fmt.Printf("%d is an int64\n", c)
+    default:
+        // all other cases
+ }
 ```
 
 A defer statement defers the execution of a function until the surrounding function returns. The call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
@@ -696,7 +759,23 @@ func main() {
 }
 ```
 
-The select statement lets a goroutine wait on multiple communication operations. A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
+The `select` statement lets a goroutine wait on multiple communication operations. A `select` blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
+
+```go
+// Select has syntax like a switch statement but each case involves
+// a channel operation. It selects a case at random out of the cases
+// that are ready to communicate.
+select {
+case i := <-c: // The value received can be assigned to a variable,
+    fmt.Printf("it's a %T", i)
+case <-cs: // or the value received can be discarded.
+    fmt.Println("it's a string")
+case <-ccs: // Empty channel, not ready for communication.
+    fmt.Println("didn't happen.")
+}
+// At this point a value was taken from either c or cs. One of the two
+// goroutines started above has completed, the other will remain blocked.
+```
 
 ## Testing
 
