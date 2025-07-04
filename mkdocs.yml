@@ -68,7 +68,7 @@ nav:
               - AWS: aws.md
               #- Azure: azure.md
               #- Continuous Integration/Delivery: ci.md
-              #- Docker: docker.md
+              - Docker: docker.md
               #- Git: git.md
               #- GitOps & ArgoCD: gitops.md
               #- Jenkins: jenkins.md
