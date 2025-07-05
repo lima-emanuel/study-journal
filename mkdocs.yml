@@ -71,6 +71,7 @@ nav:
               - Docker: docker.md
               #- Git: git.md
               #- GitOps & ArgoCD: gitops.md
+              - Google Cloud: gcp.md
               #- Jenkins: jenkins.md
               - JSON: json.md
               #- Kubernetes: k8s.md
