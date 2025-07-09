@@ -78,8 +78,8 @@ nav:
               #- Microservices: micro.md
               - OpenNebula: one.md
               #- Podman: podman.md
+              - Redis: redis.md
               #- Release Engineering: re.md
-              #- Serverless: serverless.md
               #- Site Reliability Engineering: sre.md
               #- Tekton: tekton.md
               #- Terraform: terraform.md
