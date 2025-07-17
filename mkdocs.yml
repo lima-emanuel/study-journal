@@ -55,7 +55,7 @@ extra_javascript:
       - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 nav:
       - Programming Languages:
-              #- Bash: bash.md
+              - Bash: bash.md
               - C: c.md
               - C++: cpp.md
               - Cython: cython.md
@@ -64,7 +64,7 @@ nav:
               - Python: py.md
               - Rust: rust.md
       - DevOps:
-              #- Ansible: ansible.md
+              - Ansible: ansible.md
               - AWS: aws.md
               #- Azure: azure.md
               #- Continuous Integration/Delivery: ci.md

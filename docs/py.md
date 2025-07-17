@@ -305,7 +305,7 @@ Also, it's useful to have a `CONTRIBUTING.md` file that will be displayed when s
 
 Some documentation software:
 
-- [Sphinx](www.sphinx-doc.org) reads Markdown (through MyST) or reStructuredText and produces HTML or PDF documentation.
+- [Sphinx](https://www.sphinx-doc.org) reads Markdown (through MyST) or reStructuredText and produces HTML or PDF documentation.
 - [mdBook](https://rust-lang.github.io/mdBook/) reads Markdown and produces HTML or PDF documentation.
 
 ### Documenting API Changes
