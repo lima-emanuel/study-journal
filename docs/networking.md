@@ -73,3 +73,33 @@ __HTTP Status Codes Common Examples__:
 - `301`: Moved to new URL;
 - `401`: Unauthorized;
 - `500`: Internal server error;
+
+## URIs
+
+A Uniform Resource Identifier (URI) is a unique sequence of characters that identifies an abstract or physical resource, such as resources on a webpage, mail address, phone number, books, real-world objects such as people and places, concepts. URIs which provide a means of locating and retrieving information about resources on a network (either on the Internet or on another private network, such as a computer filesystem or an Intranet) are Uniform Resource Locators (URLs). Therefore, URLs are a subset of URIs, i.e. every URL is a URI (and not necessarily the other way around). Other URIs provide only a unique name, without a means of locating or retrieving the resource or information about it; these are Uniform Resource Names (URNs).
+
+A Uniform Resource Name (URN) is a URI that identifies a resource by name in a particular namespace. A URN may be used to talk about a resource without implying its location or how to access it. For example, in the International Standard Book Number (ISBN) system, ISBN 0-486-27557-4 identifies a specific edition of the William Shakespeare play Romeo and Juliet. The URN for that edition would be `urn:isbn:0-486-27557-4`. However, it gives no information as to where to find a copy of that book.
+
+A Uniform Resource Locator (URL) is a URI that specifies the means of acting upon or obtaining the representation of a resource, i.e. specifying both its primary access mechanism and network location. For example, the URL `http://example.org/wiki/Main_Page` refers to a resource identified as `/wiki/Main_Page`, whose representation is obtainable via the Hypertext Transfer Protocol (http:) from a network host whose domain name is `example.org`.
+
+### Syntax
+
+The syntax for an URI follows the form:
+
+```uri
+URI = scheme ":" ["//" authority] path ["?" query] ["#" fragment]
+```
+
+Or in picture:
+
+![image](img/uri.jpg)
+
+Example: `https://www.google.com/search?q=casa&sca_esv=1e37#rlimm=17546`, where:
+
+- `https` is the scheme (or protocol);
+- `www.google.com` is the authority. Authorities are of the form `username:password@host:port`, `host` is the only obligatory;
+- `/search` is the path, specifically a pathinfo (because it's not a file, but rather a command);
+- `?q=casa&sca_esv=1e37` is the (optional) query with the form `?key=value&key=value` or `?key=value;key=value`;
+- `#rlimm=17546` is the (optional) fragment.
+
+An http or https URI containing a pathinfo part without a query or fragment part is a `clean URL`.
