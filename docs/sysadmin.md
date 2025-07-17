@@ -112,6 +112,8 @@ TODO
 - `curl [URL] -O`: downloads the file from the URL and saves with the same name;
 - `curl -d "name=fulano&lang=Python" [URL]`: `POST` into URL;
 - `curl -d @data.txt [URL]`: `POST` the contents of `data.txt` into URL;
+- `curl -d @data.json -H 'Content-Type: application/json' [URL]`: `POST` the contents of `data.json` into URL specifying that the content-type is json;
+- `curl --json @data.json [URL]`: better than the above;
 - `curl -I [URL]`: fetches only the HTTP header;
 - `curl -L [URL]`: follows redirects;
 - `curl -I [URL] --next -d @data.txt [URL]`: `--next` makes multiple requests one after another resetting all options used before;
