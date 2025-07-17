@@ -641,6 +641,72 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systemd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      journalctl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      APT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      SELinux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment" class="md-nav__link">
     <span class="md-ellipsis">
       Environment
@@ -655,6 +721,21 @@
       Internet
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -876,6 +957,72 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systemd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      journalctl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      APT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      SELinux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#environment" class="md-nav__link">
     <span class="md-ellipsis">
       Environment
@@ -890,6 +1037,21 @@
       Internet
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -958,6 +1120,7 @@
 <li><code>mnt</code>: Mount point for mounting a filesystem temporarily</li>
 <li><code>opt</code>: Add-on application software packages</li>
 <li><code>proc</code>: Kernel and process file system</li>
+<li><code>proc/sys</code>: Kernel features, changeable through <code>sysctl</code></li>
 <li><code>root</code>: Home directory for the root user</li>
 <li><code>run</code>: Data relevant to running processes</li>
 <li><code>sbin</code>: Essential system binaries</li>
@@ -983,6 +1146,7 @@
 <li><code>mv [options] [origin] [destination]</code>: move/rename from <code>origin</code> to <code>destination</code>. <code>-i</code> asks before moving. <code>-t folder</code> move everything from origin into folder. <code>-T</code> destination is a file.</li>
 <li><code>rm [options] [file]</code>: remove/rename <code>file</code>. <code>-i</code> asks before removing. <code>-r</code> recursive remove.</li>
 <li><code>ln -s [origin] [destination]</code>: soft link from <code>origin</code> to <code>destination</code>.</li>
+<li><code>ln [origin] [destination]</code>: hard link from <code>origin</code> to <code>destination</code>. Almost like a copy, but the contents of origin and destination are always the same (are synced).</li>
 </ul>
 <h3 id="permissions">Permissions</h3>
 <ul>
@@ -1024,13 +1188,89 @@
 <li><code>file [file]</code>: query what kind of file is it</li>
 <li><code>who [options]</code>: print logged users</li>
 <li><code>w</code>: print logged users and processes</li>
-<li><code>id [user]</code>: get user id</li>
+<li><code>id [user]</code>: get user and groups ids</li>
 <li><code>set</code>: print all env variables</li>
+<li><code>pwd</code>: print absolute path of the current working directory</li>
+<li><code>printenv</code>: print all env vars</li>
+<li><code>cat /etc/passwd</code>: info about all users in the form <code>username:password:user_id:group_id:notes:/home/dirname:shell</code>. The actual passwords are stored in <code>/etc/shadow</code>.</li>
+<li><code>adduser</code> and <code>addgroup</code>: adds users and groups to the system</li>
+<li><code>usermod</code> and <code>userdel</code>: modifies and deletes users on the system</li>
+<li><code>passwd</code>: change password of user</li>
+<li><code>ps aux</code>: see all processes</li>
+<li><code>kill [PID]</code>: sends <code>SIGTERM</code> to process <code>[PID]</code></li>
+<li><code>pkill [PROCESS]</code>: sends <code>SIGTERM</code> to process <code>[PROCESS]</code></li>
+<li><code>kill -s [SIG] [PID]</code>: sends <code>[SIG]</code> to process <code>[PID]</code></li>
+<li><code>lsof</code>: lists open files</li>
+<li><code>cat /proc/cpuinfo</code>: information about the CPU</li>
+<li><code>cat /proc/meminfo</code>: information about the memory</li>
+<li><code>cat /proc/cmdline</code>: all the parameters passed to the kernel at the bootup time</li>
+<li><code>nice -n [INT] [COMMAND]</code>: runs <code>[COMMAND]</code> with an adjusted niceness, which affects process scheduling.  With no <code>[COMMAND]</code>, print the current niceness.  Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). <code>[INT]</code> defaults to 10. <code>nice</code> launches a new command with a modified nice level (lower priority than it would have otherwise had, or higher priority if you have permission). You specify which command to launch by providing it as an argument to nice itself. nice actually execs that command, so nice itself doesn't terminate until the command does.</li>
+<li><code>renice [--priority|--relative] [INT] [-g|-p|-u] [ID]</code>:  alters the scheduling priority of one or more running processes. The first argument is the priority value to be used. The other arguments are interpreted as process IDs (by default), process group IDs, user IDs, or user names. reniceing a process group causes all processes in the process group to have their scheduling priority altered. reniceing a user causes all processes owned by the user to have their scheduling priority altered. <code>renice</code> changes the priority of an existing running process, then terminates immediately.</li>
 </ul>
+<h2 id="systemd">Systemd</h2>
+<p>A set of software used to provide an array of system components for Linux. It aims is to unify service configuration and behavior across Linux distributions. Its primary component is a "system and service manager" — an init system used to bootstrap user space and manage user processes.</p>
+<p>In systemd, a unit is the basic object that systemd manages and supervises. Units represent resources like services, sockets, devices, mount points, and more. Each unit is defined by a configuration file (ending in .service, .socket, .mount, etc.) that describes how systemd should manage it. Units are used to start, stop, enable, and monitor system resources and processes.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>systemctl --type=service</code>: lists all service units;</li>
+<li><code>sudo systemctl status [SERVICE]</code>: shows the current status of the service</li>
+<li><code>sudo systemctl start [SERVICE]</code>: starts the service</li>
+<li><code>sudo systemctl enable [SERVICE]</code>: starts the service now and on all bootups</li>
+<li><code>sudo systemctl disable [SERVICE]</code>: removes the service from bootups</li>
+</ul>
+<h3 id="journalctl">journalctl</h3>
+<p>Systemd runs the systemd-journald.service, which stores logs in the journal from the different services maintained by systemd.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li><code>sudo journalctl</code>: prints log entries from the systemd journal;</li>
+<li><code>sudo journalctl --since [DATE]</code>: prints log entries from the systemd journal starting from <code>[DATE]</code>;</li>
+<li><code>sudo journalctl -u [SERVICE]</code>: prints log entries from the systemd journal about <code>[SERVICE]</code>. Add <code>-f</code> to see a continuous stream;</li>
+<li><code>sudo journalctl --list-boots</code>: history from past boots;</li>
+<li><code>sudo journalctl -b [BOOT ID]</code>: prints log entries from the systemd journal during boot <code>[BOOT ID]</code></li>
+<li><code>sudo journalctl --disk-usage</code>: prints the size of the journals</li>
+</ul>
+<h2 id="packages">Packages</h2>
+<h3 id="dnf">DNF</h3>
+<ul>
+<li><code>dnf search [PKG]</code>: search for <code>[PKG]</code></li>
+<li><code>dnf info [PKG]</code>: show information about <code>[PKG]</code></li>
+<li><code>sudo dnf install [PKG]</code>: install <code>[PKG]</code></li>
+<li><code>sudo dnf list updates</code>: list available updates</li>
+<li><code>sudo dnf updateinfo list --security</code>: list available security updates</li>
+<li><code>sudo dnf update</code>: update the system</li>
+<li><code>sudo needs-restarting</code>: show which processes need restarting to be updated</li>
+</ul>
+<h3 id="apt">APT</h3>
+<ul>
+<li><code>apt search [PKG]</code>: search for <code>[PKG]</code></li>
+<li><code>apt policy [PKG]</code>: show information about <code>[PKG]</code></li>
+<li><code>sudo apt install [PKG]</code>: install <code>[PKG]</code></li>
+<li><code>sudo apt list --upgradable</code>: list available updates</li>
+<li><code>sudo apt update</code>: update package information</li>
+<li><code>sudo apt full-upgrade</code>: update the system</li>
+</ul>
+<h2 id="selinux">SELinux</h2>
+<p>TODO</p>
 <h2 id="environment">Environment</h2>
 <p>TODO</p>
 <h2 id="internet">Internet</h2>
 <p>TODO</p>
+<h3 id="curl">Curl</h3>
+<p><code>curl</code> is a command-line tool used for transferring data with URLs. It supports various protocols including HTTP, HTTPS, FTP, etc.</p>
+<ul>
+<li><code>curl [URL]</code>: downloads the file from the URL to STDOUT;</li>
+<li><code>curl [URL] -o [destination]</code>: downloads the file from the URL to <code>destination</code>;</li>
+<li><code>curl [URL] -O</code>: downloads the file from the URL and saves with the same name;</li>
+<li><code>curl -d "name=fulano&amp;lang=Python" [URL]</code>: <code>POST</code> into URL;</li>
+<li><code>curl -d @data.txt [URL]</code>: <code>POST</code> the contents of <code>data.txt</code> into URL;</li>
+<li><code>curl -d @data.json -H 'Content-Type: application/json' [URL]</code>: <code>POST</code> the contents of <code>data.json</code> into URL specifying that the content-type is json;</li>
+<li><code>curl --json @data.json [URL]</code>: better than the above;</li>
+<li><code>curl -I [URL]</code>: fetches only the HTTP header;</li>
+<li><code>curl -L [URL]</code>: follows redirects;</li>
+<li><code>curl -I [URL] --next -d @data.txt [URL]</code>: <code>--next</code> makes multiple requests one after another resetting all options used before;</li>
+<li><code>curl -v [URL]</code>: verbose output. Lines with <code>&gt;</code> at the start of the line, show the headers in the request, while those with <code>&lt;</code> show the headers in the response. Using <code>-s</code> helps to see only the headers. Using <code>-o /dev/null</code> helps to ignore the return content;</li>
+<li><code>curl -H [header/@header_file] [url]</code>: adds extra header to the request;</li>
+</ul>
 <h2 id="utilities">Utilities</h2>
 <ul>
 <li><code>apropos [options] [keyword]</code>: searches for <code>keyword</code> on manpages</li>
@@ -1046,6 +1286,10 @@
 <li><code>tee [file]</code>: read from standard input and write to standard output and file. <code>-a</code> append, do not overwrite.</li>
 <li><code>split [options] [size] [file] [prefix]</code>: output pieces of file to PREFIXaa, PREFIXab, ... in chunks of size size. <code>-b</code> size in bytes, <code>-l</code> size in lines, <code>-t char</code> use char as separator</li>
 <li><code>at [options]</code>: o</li>
+<li><code>date</code>: prints the current date</li>
+<li><code>tar -xzvf file.tar.gz</code>: extract file</li>
+<li><code>tar -czvf files.tar.gz file1.c file2.txt</code>: create a tar called <code>files</code> from <code>file1</code> and <code>file2</code></li>
+<li><code>locate [name]</code>: finds files named <code>name</code> in the system.</li>
 </ul>
 <h2 id="vim">Vim</h2>
 <p>TODO</p>
