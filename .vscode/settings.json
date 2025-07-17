@@ -5,7 +5,11 @@
         "hypot",
         "Moby",
         "nigelpoulton",
+        "pkill",
         "pprof",
+        "renice",
+        "reniceing",
+        "sdiff",
         "xzvf"
     ]
 }

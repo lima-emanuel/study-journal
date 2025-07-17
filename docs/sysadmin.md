@@ -19,6 +19,7 @@
 - `mnt`: Mount point for mounting a filesystem temporarily
 - `opt`: Add-on application software packages
 - `proc`: Kernel and process file system
+- `proc/sys`: Kernel features, changeable through `sysctl`
 - `root`: Home directory for the root user
 - `run`: Data relevant to running processes
 - `sbin`: Essential system binaries
@@ -94,6 +95,72 @@ kidder.txt kiddo kidnews kidneypie
 - `set`: print all env variables
 - `pwd`: print absolute path of the current working directory
 - `printenv`: print all env vars
+- `cat /etc/passwd`: info about all users in the form `username:password:user_id:group_id:notes:/home/dirname:shell`. The actual passwords are stored in `/etc/shadow`.
+- `adduser` and `addgroup`: adds users and groups to the system
+- `usermod` and `userdel`: modifies and deletes users on the system
+- `passwd`: change password of user
+- `ps aux`: see all processes
+- `kill [PID]`: sends `SIGTERM` to process `[PID]`
+- `pkill [PROCESS]`: sends `SIGTERM` to process `[PROCESS]`
+- `kill -s [SIG] [PID]`: sends `[SIG]` to process `[PID]`
+- `lsof`: lists open files
+- `cat /proc/cpuinfo`: information about the CPU
+- `cat /proc/meminfo`: information about the memory
+- `cat /proc/cmdline`: all the parameters passed to the kernel at the bootup time
+- `nice -n [INT] [COMMAND]`: runs `[COMMAND]` with an adjusted niceness, which affects process scheduling.  With no `[COMMAND]`, print the current niceness.  Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). `[INT]` defaults to 10. `nice` launches a new command with a modified nice level (lower priority than it would have otherwise had, or higher priority if you have permission). You specify which command to launch by providing it as an argument to nice itself. nice actually execs that command, so nice itself doesn't terminate until the command does.
+- `renice [--priority|--relative] [INT] [-g|-p|-u] [ID]`:  alters the scheduling priority of one or more running processes. The first argument is the priority value to be used. The other arguments are interpreted as process IDs (by default), process group IDs, user IDs, or user names. reniceing a process group causes all processes in the process group to have their scheduling priority altered. reniceing a user causes all processes owned by the user to have their scheduling priority altered. `renice` changes the priority of an existing running process, then terminates immediately.
+
+## Systemd
+
+A set of software used to provide an array of system components for Linux. It aims is to unify service configuration and behavior across Linux distributions. Its primary component is a "system and service manager" — an init system used to bootstrap user space and manage user processes.
+
+In systemd, a unit is the basic object that systemd manages and supervises. Units represent resources like services, sockets, devices, mount points, and more. Each unit is defined by a configuration file (ending in .service, .socket, .mount, etc.) that describes how systemd should manage it. Units are used to start, stop, enable, and monitor system resources and processes.
+
+__Commands:__
+
+- `systemctl --type=service`: lists all service units;
+- `sudo systemctl status [SERVICE]`: shows the current status of the service
+- `sudo systemctl start [SERVICE]`: starts the service
+- `sudo systemctl enable [SERVICE]`: starts the service now and on all bootups
+- `sudo systemctl disable [SERVICE]`: removes the service from bootups
+
+### journalctl
+
+Systemd runs the systemd-journald.service, which stores logs in the journal from the different services maintained by systemd.
+
+__Commands:__
+
+- `sudo journalctl`: prints log entries from the systemd journal;
+- `sudo journalctl --since [DATE]`: prints log entries from the systemd journal starting from `[DATE]`;
+- `sudo journalctl -u [SERVICE]`: prints log entries from the systemd journal about `[SERVICE]`. Add `-f` to see a continuous stream;
+- `sudo journalctl --list-boots`: history from past boots;
+- `sudo journalctl -b [BOOT ID]`: prints log entries from the systemd journal during boot `[BOOT ID]`
+- `sudo journalctl --disk-usage`: prints the size of the journals
+
+## Packages
+
+### DNF
+
+- `dnf search [PKG]`: search for `[PKG]`
+- `dnf info [PKG]`: show information about `[PKG]`
+- `sudo dnf install [PKG]`: install `[PKG]`
+- `sudo dnf list updates`: list available updates
+- `sudo dnf updateinfo list --security`: list available security updates
+- `sudo dnf update`: update the system
+- `sudo needs-restarting`: show which processes need restarting to be updated
+
+### APT
+
+- `apt search [PKG]`: search for `[PKG]`
+- `apt policy [PKG]`: show information about `[PKG]`
+- `sudo apt install [PKG]`: install `[PKG]`
+- `sudo apt list --upgradable`: list available updates
+- `sudo apt update`: update package information
+- `sudo apt full-upgrade`: update the system
+
+## SELinux
+
+TODO
 
 ## Environment
 
