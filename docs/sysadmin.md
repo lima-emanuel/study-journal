@@ -44,6 +44,7 @@
 - `mv [options] [origin] [destination]`: move/rename from `origin` to `destination`. `-i` asks before moving. `-t folder` move everything from origin into folder. `-T` destination is a file.
 - `rm [options] [file]`: remove/rename `file`. `-i` asks before removing. `-r` recursive remove.
 - `ln -s [origin] [destination]`: soft link from `origin` to `destination`.
+- `ln [origin] [destination]`: hard link from `origin` to `destination`. Almost like a copy, but the contents of origin and destination are always the same (are synced).
 
 ### Permissions
 
@@ -89,8 +90,10 @@ kidder.txt kiddo kidnews kidneypie
 - `file [file]`: query what kind of file is it
 - `who [options]`: print logged users
 - `w`: print logged users and processes
-- `id [user]`: get user id
+- `id [user]`: get user and groups ids
 - `set`: print all env variables
+- `pwd`: print absolute path of the current working directory
+- `printenv`: print all env vars
 
 ## Environment
 
@@ -99,6 +102,21 @@ TODO
 ## Internet
 
 TODO
+
+### Curl
+
+`curl` is a command-line tool used for transferring data with URLs. It supports various protocols including HTTP, HTTPS, FTP, etc.
+
+- `curl [URL]`: downloads the file from the URL to STDOUT;
+- `curl [URL] -o [destination]`: downloads the file from the URL to `destination`;
+- `curl [URL] -O`: downloads the file from the URL and saves with the same name;
+- `curl -d "name=fulano&lang=Python" [URL]`: `POST` into URL;
+- `curl -d @data.txt [URL]`: `POST` the contents of `data.txt` into URL;
+- `curl -I [URL]`: fetches only the HTTP header;
+- `curl -L [URL]`: follows redirects;
+- `curl -I [URL] --next -d @data.txt [URL]`: `--next` makes multiple requests one after another resetting all options used before;
+- `curl -v [URL]`: verbose output. Lines with `>` at the start of the line, show the headers in the request, while those with `<` show the headers in the response. Using `-s` helps to see only the headers;
+- `curl -H [header/@header_file] [url]`: adds extra header to the request;
 
 ## Utilities
 
@@ -114,7 +132,11 @@ TODO
 - `uniq [options] [input] [output]`: report or omit repeated lines. `-u` print unique lines, `-D` print duplicate lines
 - `tee [file]`: read from standard input and write to standard output and file. `-a` append, do not overwrite.
 - `split [options] [size] [file] [prefix]`: output pieces of file to PREFIXaa, PREFIXab, ... in chunks of size size. `-b` size in bytes, `-l` size in lines, `-t char` use char as separator
-- `at [options] `: o
+- `at [options]`: o
+- `date`: prints the current date
+- `tar -xzvf file.tar.gz`: extract file
+- `tar -czvf files.tar.gz file1.c file2.txt`: create a tar called `files` from `file1` and `file2`
+- `locate [name]`: finds files named `name` in the system.
 
 ## Vim
 
