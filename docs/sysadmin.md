@@ -115,7 +115,7 @@ TODO
 - `curl -I [URL]`: fetches only the HTTP header;
 - `curl -L [URL]`: follows redirects;
 - `curl -I [URL] --next -d @data.txt [URL]`: `--next` makes multiple requests one after another resetting all options used before;
-- `curl -v [URL]`: verbose output. Lines with `>` at the start of the line, show the headers in the request, while those with `<` show the headers in the response. Using `-s` helps to see only the headers;
+- `curl -v [URL]`: verbose output. Lines with `>` at the start of the line, show the headers in the request, while those with `<` show the headers in the response. Using `-s` helps to see only the headers. Using `-o /dev/null` helps to ignore the return content;
 - `curl -H [header/@header_file] [url]`: adds extra header to the request;
 
 ## Utilities
