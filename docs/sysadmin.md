@@ -39,6 +39,12 @@
 
 - `cmp [options] [file1] [file2]`: compare two files byte by byte.
 - `find [options] [start directory] -name [pattern]`: searches for files.
+- `find . -name src -type d`: find all directories named src
+- `find . -path '*/test/*.py' -type f`: find all python files that have a folder named test in their path
+- `find . -mtime -1`: find all files modified in the last day
+- `find . -size +500k -size -10M -name '*.tar.gz'`: find all zip files with size in range 500k to 10M
+- `find . -name '*.tmp' -exec rm {} \;`: delete all files with .tmp extension
+- `find . -name '*.png' -exec magick {} {}.jpg \;`: Find all PNG files and convert them to JPG
 - `plocate [pattern]`: searches for files. `sudo updatedb` to update its database.
 - `tree [options] [directory]`: a recursive directory listing program that produces a depth indented listing of files. `-L` sets the max display depth of the directory tree.
 - `cp [options] [origin] [destination]`: copy from `origin` to `destination`. `-i` asks before copying. `-r` recursive copy. `-t folder` copy everything from origin into folder. `-T` destination is a file.
@@ -214,7 +220,11 @@ TODO
 - `wc [options] [file]`: prints metrics from file. `-c`counts bytes, `-m` counts chars, `-l` counts lines, `-w` counts words.
 - `head [-n] [file]`: prints the first n lines of file
 - `tail [-n] [file]`: prints the last n lines of file
-- `grep [options] [pattern] [file]`: print lines that match pattern on file. If file is `-`, stdin is considered. `-c` just counts matches. `v` consider non matches
+- `grep [options] [pattern] [file]`: print lines that match pattern on file. If file is `-`, stdin is considered. `-c` just counts matches. `-v` only consider non matches. `-C n` prints n lines above and below the match.
+- `rg -t py 'import requests'`: find all python files where I used the requests library
+- `rg -u --files-without-match "^#\!"`: find all files (including hidden files) without a shebang line
+- `rg foo -A 5`: find all matches of foo and print the following 5 lines
+- `rg --stats PATTERN`: print statistics of matches (# of matched lines and files )
 - `sed 's/old/new/g' [file]`: replace all the occurrence of the pattern on the file
 - `awk -F, ‘{ print $2 “ “ $1 “ “ $7 }’ [file]`: print fields 2, 1 and 7 of file considering a comma delimited file
 - `sdiff -s [file1] [file2]`: prints the comparison of file1 and file2. `<` if the line exists only in the first file, `>` if the line exists only in the second file, `|` if they are different
@@ -229,7 +239,7 @@ TODO
 - `locate [name]`: finds files named `name` in the system
 - `mount`: shows file systems, and how are they mounted
 - `sudo mount [device] [mount path]`: mounts `[device]` on `[mount path]`
-- `umount [device]`: unmounts the device
+- `umount [device]`: unmounts the devices
 
 ## Vim
 

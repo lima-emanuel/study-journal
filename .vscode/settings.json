@@ -11,6 +11,7 @@
         "pkill",
         "plocate",
         "pprof",
+        "putn",
         "renice",
         "reniceing",
         "resolvectl",
