@@ -1,15 +1,21 @@
 {
     "cSpell.words": [
         "buildx",
+        "chgrp",
+        "chsh",
+        "cmdline",
         "czvf",
         "hypot",
         "Moby",
         "nigelpoulton",
         "pkill",
+        "plocate",
         "pprof",
         "renice",
         "reniceing",
+        "resolvectl",
         "sdiff",
+        "updatedb",
         "xzvf"
     ]
 }

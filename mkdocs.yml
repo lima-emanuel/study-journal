@@ -89,3 +89,4 @@ nav:
               - System Administration: sysadmin.md
       - Software Engineering:
               - Agile Methods: agile.md
+      - About: index.md

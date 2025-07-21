@@ -103,3 +103,18 @@ Example: `https://www.google.com/search?q=casa&sca_esv=1e37#rlimm=17546`, where:
 - `#rlimm=17546` is the (optional) fragment.
 
 An http or https URI containing a pathinfo part without a query or fragment part is a `clean URL`.
+
+## Commands
+
+- `ip a`: shows the ip addresses of the system
+- `ip n`: finds the hardware addresses (MAC address) of the computers in the local network
+- `vim /etc/hosts`: edit the first file to be looked for name resolution
+- `vim  /etc/systemd/resolved.conf`: edit the file that sets the DNS servers used
+- `resolvectl status`: shows info on DNS resolvers used
+- `host [address|ip]`: looks up the ip or domain name
+- `dig [address|ip]`: looks up the ip or domain name
+- `dig [address|ip] @[DNS]`: looks up the ip or domain name using `[DNS]`
+- `ss -putn`: shows active TCP and UDP connections along with the associated processes
+- `traceroute [URL]`: shows each hop along the route to the URL, including the time taken for each hop
+- `tracepath [URL]`: modern version of the above
+- `cat /etc/services`: shows all ports that can be used

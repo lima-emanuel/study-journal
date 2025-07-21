@@ -79,7 +79,7 @@ kidder.txt kiddo kidnews kidneypie
 ### Variables
 
 - `$SHELL`: path to current shell binary
-- `export VAR=MyVar`: new env variavle for current session
+- `export VAR=MyVar`: new env variable for current session
 
 ## System Information
 
@@ -158,9 +158,30 @@ __Commands:__
 - `sudo apt update`: update package information
 - `sudo apt full-upgrade`: update the system
 
-## SELinux
+## Mandatory Access Control
 
-TODO
+Mandatory Access Control (MAC) is a type of access control by which a secured environment (e.g., an operating system) constrains the ability of a subject to access or modify an object. In the case of operating systems, the subject is a process or thread, while objects are files, directories, TCP/UDP ports, shared memory segments, or IO devices. Subjects and objects each have a set of security attributes. Whenever a subject attempts to access an object, the operating system kernel examines these security attributes, examines the authorization rules (aka policy) in place, and decides whether to grant access.
+
+In mandatory access control, the security policy is centrally controlled by a policy administrator and is guaranteed to be enforced for all users. Users cannot override the policy and, for example, grant access to files that would otherwise be restricted.
+
+### SELinux
+
+Security-Enhanced Linux (SELinux) is a security architecture for Linux that allows administrators to have more control over who can access the system. It is a form of MAC.
+
+SELinux defines access controls for the applications, processes, and files on a system. It uses security policies, which are a set of rules that tell SELinux what can or can’t be accessed, to enforce the access allowed by a policy. When an application or process, known as a subject, makes a request to access an object, like a file, SELinux checks with an access vector cache (AVC), where permissions are cached for subjects and objects. If SELinux is unable to make a decision about access based on the cached permissions, it sends the request to the security server. The security server checks for the security context of the app or process and the file. Security context is applied from the SELinux policy database. Permission is then granted or denied. If permission is denied, an `avc: denied` message will be available in `/var/log`.
+
+SELinux has 3 modes:
+
+- `enforcing`: policies will be enforced in the system;
+- `permissive`: policies will not be enforced but any denial is logged;
+- `disabled`: disable the SELinux.
+
+__Commands__:
+
+- `getenforce`: get current mode;
+- `setenforce [MODE]`: change the mode until the next reboot.
+
+To change the label permanently, modify the `/etc/selinux/config` file.
 
 ## Environment
 
@@ -205,7 +226,10 @@ TODO
 - `date`: prints the current date
 - `tar -xzvf file.tar.gz`: extract file
 - `tar -czvf files.tar.gz file1.c file2.txt`: create a tar called `files` from `file1` and `file2`
-- `locate [name]`: finds files named `name` in the system.
+- `locate [name]`: finds files named `name` in the system
+- `mount`: shows file systems, and how are they mounted
+- `sudo mount [device] [mount path]`: mounts `[device]` on `[mount path]`
+- `umount [device]`: unmounts the device
 
 ## Vim
 
