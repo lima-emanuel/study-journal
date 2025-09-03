@@ -673,11 +673,53 @@ func main() {
 }
 ```
 
+## Error
+
 Another important interface is `error`:
 
 ```go
 type error interface {
     Error() string
+}
+```
+
+To create a simple error, use the `errors.New()` function that is part of the standard library package `errors`, passing the error message as a string. `errors.New()` will create a value that contains your message and implements the `error` interface.
+
+If the function returns an error, it is good practice to return the zero value for all other return parameters:
+
+```go
+func DoSomething() (SomeStruct, int, error) {
+  // ...
+  return SomeStruct{}, 0, errors.New("failed to calculate result")
+}
+```
+
+### Custom error types
+
+To include more information on error than just the error message string, create a custom error type.
+Anything that implements the `error` interface (i.e. has an `Error() string` method) can serve as an error.
+
+Usually, a struct is used to create a custom error type.
+By convention, custom error type names should end with `Error`.
+Also, it is best to set up the `Error() string` method with a [pointer receiver](https://stackoverflow.com/a/50333850).
+Note that this means you need to return a pointer to your custom error otherwise it will not count as `error` because the non-pointer value does not provide the `Error() string` method.
+
+```go
+type MyCustomError struct {
+  message string
+  details string
+}
+
+func (e *MyCustomError) Error() string {
+  return fmt.Sprintf("%s, details: %s", e.message, e.details)
+}
+
+func someFunction() error {
+  // ...
+  return &MyCustomError{
+    message: "...",
+    details: "...",
+  }
 }
 ```
 
