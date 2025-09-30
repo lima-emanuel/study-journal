@@ -81,7 +81,8 @@ nav:
               #- Podman: podman.md
               - Redis: redis.md
               #- Release Engineering: re.md
-              #- Site Reliability Engineering: sre.md
+              - Site Reliability Engineering: sre.md
+              - System Design: sysdesign.md
               #- Tekton: tekton.md
               #- Terraform: terraform.md
               - YAML: yaml.md
