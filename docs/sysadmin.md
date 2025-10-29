@@ -63,6 +63,14 @@
 - `chmod u+wx [file]`: add permissions to the file
 - `chmod ug-wx [file]`: remove permissions from the file
 
+Using octal, the number used is the sum of the following:
+
+- `4`: read permission
+- `2`: write permission
+- `1`: execute permission
+
+`chmod 751 [file]` would be `rwx` for the user (`4 + 2 + 1`), `rx` for the group (`4 + 1`) and `x` for others (`1`).
+
 ## Shell
 
 ### Wildcards
