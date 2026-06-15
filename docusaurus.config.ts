@@ -24,6 +24,8 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'lima-emanuel', // Usually your GitHub org/user name.
   projectName: 'study-journal', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
 
@@ -41,10 +43,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/lima-emanuel/study-journal/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: false,
         theme: {
