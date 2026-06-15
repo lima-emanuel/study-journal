@@ -1,0 +1,281 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Operating Systems/sysadmin" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.1"><title data-rh=true>Notes on System Administration | My Study Journal</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content="https://lima-emanuel.github.io/study-journal/docs/Operating Systems/sysadmin/"/><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Notes on System Administration | My Study Journal"/><meta data-rh=true name=description content=Users /><meta data-rh=true property=og:description content=Users /><link data-rh=true rel=icon href=/study-journal/img/favicon.ico /><link data-rh=true rel=canonical href="https://lima-emanuel.github.io/study-journal/docs/Operating Systems/sysadmin/"/><link data-rh=true rel=alternate href="https://lima-emanuel.github.io/study-journal/docs/Operating Systems/sysadmin/" hreflang=en /><link data-rh=true rel=alternate href="https://lima-emanuel.github.io/study-journal/docs/Operating Systems/sysadmin/" hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://lima-emanuel.github.io/study-journal/docs/category/operating-systems","name":"Operating Systems","position":1},{"@type":"ListItem","item":"https://lima-emanuel.github.io/study-journal/docs/Operating Systems/sysadmin","name":"Notes on System Administration","position":2}]}</script><link rel=stylesheet href=/study-journal/assets/css/styles.c71b8620.css /><script src=/study-journal/assets/js/runtime~main.51e06bd1.js defer></script><script src=/study-journal/assets/js/main.d051879e.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-482")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/study-journal/img/book-closed.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_YCve href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/study-journal/><div class=navbar__logo><img src=/study-journal/img/book-closed.svg alt=Logo class="themedComponent_OmMt themedComponent--light_xcwv"/><img src=/study-journal/img/book-closed.svg alt=Logo class="themedComponent_OmMt themedComponent--dark_zAV9"/></div><b class="navbar__title text--truncate">My Study Journal</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/study-journal/docs/intro/>Documentation</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://github.com/lima-emanuel/study-journal target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_RAnm><use href=#theme-svg-external-link /></svg></a><a href=https://www.linkedin.com/in/elimasousa/ target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">LinkedIn<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_RAnm><use href=#theme-svg-external-link /></svg></a><div class="toggle_J4uO colorModeToggle_Wgkg"><button class="clean-btn toggleButton_cobH toggleButtonDisabled_iC0m" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_uDYH lightToggleIcon_ubjP"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_uDYH darkToggleIcon_EahG"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_uDYH systemToggleIcon_EZbb"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_E06z></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_hNRz"><div class=docsWrapper_ii0e><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_YCLr" type=button></button><div class=docRoot_HfTp><aside class="theme-doc-sidebar-container docSidebarContainer_IRMs"><div class=sidebarViewport_vl0Q><div class=sidebar_qFLl><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_FUzz"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/study-journal/docs/intro/><span title="Welcome to My Study Journal" class=linkLabel_pEao>Welcome to My Study Journal</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_RAMs menu__link menu__link--sublist" href=/study-journal/docs/category/programming-languages/><span title="Programming Languages" class=categoryLinkLabel_nW3K>Programming Languages</span></a><button aria-label="Expand sidebar category 'Programming Languages'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_RAMs menu__link menu__link--sublist" href=/study-journal/docs/category/devsecops/><span title=DevSecOps class=categoryLinkLabel_nW3K>DevSecOps</span></a><button aria-label="Expand sidebar category 'DevSecOps'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_RAMs menu__link menu__link--sublist menu__link--active" href=/study-journal/docs/category/operating-systems/><span title="Operating Systems" class=categoryLinkLabel_nW3K>Operating Systems</span></a><button aria-label="Collapse sidebar category 'Operating Systems'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href="/study-journal/docs/Operating Systems/sysadmin/"><span title="Notes on System Administration" class=linkLabel_pEao>Notes on System Administration</span></a></ul></ul></nav></div></div></aside><main class=docMainContainer_OZ8Q><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_B49V"><div class=docItemContainer_mvdm><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Rfbq" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/study-journal/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_nRri><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/study-journal/docs/category/operating-systems/><span>Operating Systems</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Notes on System Administration</span></ul></nav><div class="tocCollapsible_qZ7y theme-doc-toc-mobile tocMobile_ACaj"><button type=button class="clean-btn tocCollapsibleButton_M7El">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Notes on System Administration</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=users>Users<a href=#users class=hash-link aria-label="Direct link to Users" title="Direct link to Users" translate=no>​</a></h2>
+<ul>
+<li class=""><code>passwd [options] [user]</code>: changes passwords for user accounts. A normal user may only change the password for their own account, while the superuser may change the password for any account. It also changes the account or associated password validity period.</li>
+<li class=""><code>su [options] [-] [user]</code>: allows commands to be run with a substitute user and group ID. <code>-</code> starts the shell as a login shell. <code>-c command</code> passes a command.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=file-system>File System<a href=#file-system class=hash-link aria-label="Direct link to File System" title="Direct link to File System" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=filesystem-hierarchy-standard>Filesystem Hierarchy Standard<a href=#filesystem-hierarchy-standard class=hash-link aria-label="Direct link to Filesystem Hierarchy Standard" title="Direct link to Filesystem Hierarchy Standard" translate=no>​</a></h3>
+<ul>
+<li class=""><code>bin</code>: Essential command binaries</li>
+<li class=""><code>boot</code>: Static files of the boot loader</li>
+<li class=""><code>dev</code>: Device files</li>
+<li class=""><code>etc</code>: Host-specific system configuration</li>
+<li class=""><code>home</code>: Users directories</li>
+<li class=""><code>lib</code>: Essential shared libraries and kernel modules</li>
+<li class=""><code>media</code>: Mount point for removable media</li>
+<li class=""><code>mnt</code>: Mount point for mounting a filesystem temporarily</li>
+<li class=""><code>opt</code>: Add-on application software packages</li>
+<li class=""><code>proc</code>: Kernel and process file system</li>
+<li class=""><code>proc/sys</code>: Kernel features, changeable through <code>sysctl</code></li>
+<li class=""><code>root</code>: Home directory for the root user</li>
+<li class=""><code>run</code>: Data relevant to running processes</li>
+<li class=""><code>sbin</code>: Essential system binaries</li>
+<li class=""><code>srv</code>: Data for services provided by this system</li>
+<li class=""><code>sys</code>: Kernel and system information</li>
+<li class=""><code>usr/bin</code>: Most user commands</li>
+<li class=""><code>usr/include</code>: Standard header files</li>
+<li class=""><code>usr/lib</code>: Libraries for programming and packages</li>
+<li class=""><code>usr/libexec</code>: Binaries run by other programs</li>
+<li class=""><code>usr/local</code>: Local software</li>
+<li class=""><code>usr/share</code>: Arch independent data</li>
+<li class=""><code>tmp</code>: Temporary files</li>
+<li class=""><code>var</code>: Variable data</li>
+<li class=""><code>var/spool/cron</code>: Cron jobs' data</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h3>
+<ul>
+<li class=""><code>cmp [options] [file1] [file2]</code>: compare two files byte by byte.</li>
+<li class=""><code>find [options] [start directory] -name [pattern]</code>: searches for files.</li>
+<li class=""><code>find . -name src -type d</code>: find all directories named src</li>
+<li class=""><code>find . -path '*/test/*.py' -type f</code>: find all python files that have a folder named test in their path</li>
+<li class=""><code>find . -mtime -1</code>: find all files modified in the last day</li>
+<li class=""><code>find . -size +500k -size -10M -name '*.tar.gz'</code>: find all zip files with size in range 500k to 10M</li>
+<li class=""><code>find . -name '*.tmp' -exec rm {} \;</code>: delete all files with .tmp extension</li>
+<li class=""><code>find . -name '*.png' -exec magick {} {}.jpg \;</code>: Find all PNG files and convert them to JPG</li>
+<li class=""><code>plocate [pattern]</code>: searches for files. <code>sudo updatedb</code> to update its database.</li>
+<li class=""><code>tree [options] [directory]</code>: a recursive directory listing program that produces a depth indented listing of files. <code>-L</code> sets the max display depth of the directory tree.</li>
+<li class=""><code>cp [options] [origin] [destination]</code>: copy from <code>origin</code> to <code>destination</code>. <code>-i</code> asks before copying. <code>-r</code> recursive copy. <code>-t folder</code> copy everything from origin into folder. <code>-T</code> destination is a file.</li>
+<li class=""><code>mv [options] [origin] [destination]</code>: move/rename from <code>origin</code> to <code>destination</code>. <code>-i</code> asks before moving. <code>-t folder</code> move everything from origin into folder. <code>-T</code> destination is a file.</li>
+<li class=""><code>rm [options] [file]</code>: remove/rename <code>file</code>. <code>-i</code> asks before removing. <code>-r</code> recursive remove.</li>
+<li class=""><code>ln -s [origin] [destination]</code>: soft link from <code>origin</code> to <code>destination</code>.</li>
+<li class=""><code>ln [origin] [destination]</code>: hard link from <code>origin</code> to <code>destination</code>. Almost like a copy, but the contents of origin and destination are always the same (are synced).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=permissions>Permissions<a href=#permissions class=hash-link aria-label="Direct link to Permissions" title="Direct link to Permissions" translate=no>​</a></h3>
+<ul>
+<li class=""><code>d rwx rwx rwx</code>: if directory and read, write, execute for user, group and others</li>
+<li class=""><code>groups [user]</code>: list the groups the user is a member of</li>
+<li class=""><code>chgrp [options] [group] [file]</code>: change the group of the file</li>
+<li class=""><code>chown [options] [user] [file]</code>: change the user of the file</li>
+<li class=""><code>chmod u=rwx,g=rx,o=r [file]</code>: change the permissions of the file to the exact ones provided</li>
+<li class=""><code>chmod u+wx [file]</code>: add permissions to the file</li>
+<li class=""><code>chmod ug-wx [file]</code>: remove permissions from the file</li>
+</ul>
+<p>Using octal, the number used is the sum of the following:</p>
+<ul>
+<li class=""><code>4</code>: read permission</li>
+<li class=""><code>2</code>: write permission</li>
+<li class=""><code>1</code>: execute permission</li>
+</ul>
+<p><code>chmod 751 [file]</code> would be <code>rwx</code> for the user (<code>4 + 2 + 1</code>), <code>rx</code> for the group (<code>4 + 1</code>) and <code>x</code> for others (<code>1</code>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=shell>Shell<a href=#shell class=hash-link aria-label="Direct link to Shell" title="Direct link to Shell" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=wildcards>Wildcards<a href=#wildcards class=hash-link aria-label="Direct link to Wildcards" title="Direct link to Wildcards" translate=no>​</a></h3>
+<p>Wildcards are placeholders for omitted letters or numbers:</p>
+<ul>
+<li class=""><code>?</code>: placeholder for one character</li>
+<li class=""><code>*</code>: placeholder for zero or more characters</li>
+</ul>
+<div class="language-bash codeBlockContainer_Z2cf theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_GmT7><pre tabindex=0 class="prism-code language-bash codeBlock_WcJL thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_Oe7t><div class=token-line style=color:#393A34><span class="token plain">$ ls k?d*</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">kidder.txt kiddo kidnews kidneypie</span><br/></div></code></pre></div></div>
+<p><strong>Commands</strong>:</p>
+<ul>
+<li class=""><code>chsh [-s shell] [user]</code>: change users shell. <code>-l</code> lists installed shells.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=variables>Variables<a href=#variables class=hash-link aria-label="Direct link to Variables" title="Direct link to Variables" translate=no>​</a></h3>
+<ul>
+<li class=""><code>$SHELL</code>: path to current shell binary</li>
+<li class=""><code>export VAR=MyVar</code>: new env variable for current session</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=system-information>System Information<a href=#system-information class=hash-link aria-label="Direct link to System Information" title="Direct link to System Information" translate=no>​</a></h2>
+<ul>
+<li class=""><code>uname -a</code>: info on system</li>
+<li class=""><code>df -h</code>: see all file systems</li>
+<li class=""><code>du -h</code>: disk usage of files on current directory</li>
+<li class=""><code>lsblk</code>: list block devices</li>
+<li class=""><code>lsblk</code>: list block devices</li>
+<li class=""><code>file [file]</code>: query what kind of file is it</li>
+<li class=""><code>who [options]</code>: print logged users</li>
+<li class=""><code>w</code>: print logged users and processes</li>
+<li class=""><code>id [user]</code>: get user and groups ids</li>
+<li class=""><code>set</code>: print all env variables</li>
+<li class=""><code>pwd</code>: print absolute path of the current working directory</li>
+<li class=""><code>printenv</code>: print all env vars</li>
+<li class=""><code>cat /etc/passwd</code>: info about all users in the form <code>username:password:user_id:group_id:notes:/home/dirname:shell</code>. The actual passwords are stored in <code>/etc/shadow</code>.</li>
+<li class=""><code>adduser</code> and <code>addgroup</code>: adds users and groups to the system</li>
+<li class=""><code>usermod</code> and <code>userdel</code>: modifies and deletes users on the system</li>
+<li class=""><code>passwd</code>: change password of user</li>
+<li class=""><code>ps aux</code>: see all processes</li>
+<li class=""><code>kill [PID]</code>: sends <code>SIGTERM</code> to process <code>[PID]</code></li>
+<li class=""><code>pkill [PROCESS]</code>: sends <code>SIGTERM</code> to process <code>[PROCESS]</code></li>
+<li class=""><code>kill -s [SIG] [PID]</code>: sends <code>[SIG]</code> to process <code>[PID]</code></li>
+<li class=""><code>lsof</code>: lists open files</li>
+<li class=""><code>cat /proc/cpuinfo</code>: information about the CPU</li>
+<li class=""><code>cat /proc/meminfo</code>: information about the memory</li>
+<li class=""><code>cat /proc/cmdline</code>: all the parameters passed to the kernel at the bootup time</li>
+<li class=""><code>nice -n [INT] [COMMAND]</code>: runs <code>[COMMAND]</code> with an adjusted niceness, which affects process scheduling.  With no <code>[COMMAND]</code>, print the current niceness.  Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). <code>[INT]</code> defaults to 10. <code>nice</code> launches a new command with a modified nice level (lower priority than it would have otherwise had, or higher priority if you have permission). You specify which command to launch by providing it as an argument to nice itself. nice actually execs that command, so nice itself doesn't terminate until the command does.</li>
+<li class=""><code>renice [--priority|--relative] [INT] [-g|-p|-u] [ID]</code>:  alters the scheduling priority of one or more running processes. The first argument is the priority value to be used. The other arguments are interpreted as process IDs (by default), process group IDs, user IDs, or user names. reniceing a process group causes all processes in the process group to have their scheduling priority altered. reniceing a user causes all processes owned by the user to have their scheduling priority altered. <code>renice</code> changes the priority of an existing running process, then terminates immediately.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=systemd>Systemd<a href=#systemd class=hash-link aria-label="Direct link to Systemd" title="Direct link to Systemd" translate=no>​</a></h2>
+<p>A set of software used to provide an array of system components for Linux. It aims is to unify service configuration and behavior across Linux distributions. Its primary component is a "system and service manager" — an init system used to bootstrap user space and manage user processes.</p>
+<p>In systemd, a unit is the basic object that systemd manages and supervises. Units represent resources like services, sockets, devices, mount points, and more. Each unit is defined by a configuration file (ending in .service, .socket, .mount, etc.) that describes how systemd should manage it. Units are used to start, stop, enable, and monitor system resources and processes.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li class=""><code>systemctl --type=service</code>: lists all service units;</li>
+<li class=""><code>sudo systemctl status [SERVICE]</code>: shows the current status of the service</li>
+<li class=""><code>sudo systemctl start [SERVICE]</code>: starts the service</li>
+<li class=""><code>sudo systemctl enable [SERVICE]</code>: starts the service now and on all bootups</li>
+<li class=""><code>sudo systemctl disable [SERVICE]</code>: removes the service from bootups</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=journalctl>journalctl<a href=#journalctl class=hash-link aria-label="Direct link to journalctl" title="Direct link to journalctl" translate=no>​</a></h3>
+<p>Systemd runs the systemd-journald.service, which stores logs in the journal from the different services maintained by systemd.</p>
+<p><strong>Commands:</strong></p>
+<ul>
+<li class=""><code>sudo journalctl</code>: prints log entries from the systemd journal;</li>
+<li class=""><code>sudo journalctl --since [DATE]</code>: prints log entries from the systemd journal starting from <code>[DATE]</code>;</li>
+<li class=""><code>sudo journalctl -u [SERVICE]</code>: prints log entries from the systemd journal about <code>[SERVICE]</code>. Add <code>-f</code> to see a continuous stream;</li>
+<li class=""><code>sudo journalctl --list-boots</code>: history from past boots;</li>
+<li class=""><code>sudo journalctl -b [BOOT ID]</code>: prints log entries from the systemd journal during boot <code>[BOOT ID]</code></li>
+<li class=""><code>sudo journalctl --disk-usage</code>: prints the size of the journals</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=packages>Packages<a href=#packages class=hash-link aria-label="Direct link to Packages" title="Direct link to Packages" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=dnf>DNF<a href=#dnf class=hash-link aria-label="Direct link to DNF" title="Direct link to DNF" translate=no>​</a></h3>
+<ul>
+<li class=""><code>dnf search [PKG]</code>: search for <code>[PKG]</code></li>
+<li class=""><code>dnf info [PKG]</code>: show information about <code>[PKG]</code></li>
+<li class=""><code>sudo dnf install [PKG]</code>: install <code>[PKG]</code></li>
+<li class=""><code>sudo dnf list updates</code>: list available updates</li>
+<li class=""><code>sudo dnf updateinfo list --security</code>: list available security updates</li>
+<li class=""><code>sudo dnf update</code>: update the system</li>
+<li class=""><code>sudo needs-restarting</code>: show which processes need restarting to be updated</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=apt>APT<a href=#apt class=hash-link aria-label="Direct link to APT" title="Direct link to APT" translate=no>​</a></h3>
+<ul>
+<li class=""><code>apt search [PKG]</code>: search for <code>[PKG]</code></li>
+<li class=""><code>apt policy [PKG]</code>: show information about <code>[PKG]</code></li>
+<li class=""><code>sudo apt install [PKG]</code>: install <code>[PKG]</code></li>
+<li class=""><code>sudo apt list --upgradable</code>: list available updates</li>
+<li class=""><code>sudo apt update</code>: update package information</li>
+<li class=""><code>sudo apt full-upgrade</code>: update the system</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=mandatory-access-control>Mandatory Access Control<a href=#mandatory-access-control class=hash-link aria-label="Direct link to Mandatory Access Control" title="Direct link to Mandatory Access Control" translate=no>​</a></h2>
+<p>Mandatory Access Control (MAC) is a type of access control by which a secured environment (e.g., an operating system) constrains the ability of a subject to access or modify an object. In the case of operating systems, the subject is a process or thread, while objects are files, directories, TCP/UDP ports, shared memory segments, or IO devices. Subjects and objects each have a set of security attributes. Whenever a subject attempts to access an object, the operating system kernel examines these security attributes, examines the authorization rules (aka policy) in place, and decides whether to grant access.</p>
+<p>In mandatory access control, the security policy is centrally controlled by a policy administrator and is guaranteed to be enforced for all users. Users cannot override the policy and, for example, grant access to files that would otherwise be restricted.</p>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=selinux>SELinux<a href=#selinux class=hash-link aria-label="Direct link to SELinux" title="Direct link to SELinux" translate=no>​</a></h3>
+<p>Security-Enhanced Linux (SELinux) is a security architecture for Linux that allows administrators to have more control over who can access the system. It is a form of MAC.</p>
+<p>SELinux defines access controls for the applications, processes, and files on a system. It uses security policies, which are a set of rules that tell SELinux what can or can’t be accessed, to enforce the access allowed by a policy. When an application or process, known as a subject, makes a request to access an object, like a file, SELinux checks with an access vector cache (AVC), where permissions are cached for subjects and objects. If SELinux is unable to make a decision about access based on the cached permissions, it sends the request to the security server. The security server checks for the security context of the app or process and the file. Security context is applied from the SELinux policy database. Permission is then granted or denied. If permission is denied, an <code>avc: denied</code> message will be available in <code>/var/log</code>.</p>
+<p>SELinux has 3 modes:</p>
+<ul>
+<li class=""><code>enforcing</code>: policies will be enforced in the system;</li>
+<li class=""><code>permissive</code>: policies will not be enforced but any denial is logged;</li>
+<li class=""><code>disabled</code>: disable the SELinux.</li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul>
+<li class=""><code>getenforce</code>: get current mode;</li>
+<li class=""><code>setenforce [MODE]</code>: change the mode until the next reboot.</li>
+</ul>
+<p>To change the label permanently, modify the <code>/etc/selinux/config</code> file.</p>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=curl>Curl<a href=#curl class=hash-link aria-label="Direct link to Curl" title="Direct link to Curl" translate=no>​</a></h2>
+<p><code>curl</code> is a command-line tool used for transferring data with URLs. It supports various protocols including HTTP, HTTPS, FTP, etc.</p>
+<ul>
+<li class=""><code>curl [URL]</code>: downloads the file from the URL to STDOUT;</li>
+<li class=""><code>curl [URL] -o [destination]</code>: downloads the file from the URL to <code>destination</code>;</li>
+<li class=""><code>curl [URL] -O</code>: downloads the file from the URL and saves with the same name;</li>
+<li class=""><code>curl -d "name=fulano&lang=Python" [URL]</code>: <code>POST</code> into URL;</li>
+<li class=""><code>curl -d @data.txt [URL]</code>: <code>POST</code> the contents of <code>data.txt</code> into URL;</li>
+<li class=""><code>curl -d @data.json -H 'Content-Type: application/json' [URL]</code>: <code>POST</code> the contents of <code>data.json</code> into URL specifying that the content-type is json;</li>
+<li class=""><code>curl --json @data.json [URL]</code>: better than the above;</li>
+<li class=""><code>curl -I [URL]</code>: fetches only the HTTP header;</li>
+<li class=""><code>curl -L [URL]</code>: follows redirects;</li>
+<li class=""><code>curl -I [URL] --next -d @data.txt [URL]</code>: <code>--next</code> makes multiple requests one after another resetting all options used before;</li>
+<li class=""><code>curl -v [URL]</code>: verbose output. Lines with <code>></code> at the start of the line, show the headers in the request, while those with <code>&lt;</code> show the headers in the response. Using <code>-s</code> helps to see only the headers. Using <code>-o /dev/null</code> helps to ignore the return content;</li>
+<li class=""><code>curl -H [header/@header_file] [url]</code>: adds extra header to the request;</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=utilities>Utilities<a href=#utilities class=hash-link aria-label="Direct link to Utilities" title="Direct link to Utilities" translate=no>​</a></h2>
+<ul>
+<li class=""><code>apropos [options] [keyword]</code>: searches for <code>keyword</code> on manpages</li>
+<li class=""><code>wc [options] [file]</code>: prints metrics from file. <code>-c</code>counts bytes, <code>-m</code> counts chars, <code>-l</code> counts lines, <code>-w</code> counts words.</li>
+<li class=""><code>head [-n] [file]</code>: prints the first n lines of file</li>
+<li class=""><code>tail [-n] [file]</code>: prints the last n lines of file</li>
+<li class=""><code>grep [options] [pattern] [file]</code>: print lines that match pattern on file. If file is <code>-</code>, stdin is considered. <code>-c</code> just counts matches. <code>-v</code> only consider non matches. <code>-C n</code> prints n lines above and below the match.</li>
+<li class=""><code>rg -t py 'import requests'</code>: find all python files where I used the requests library</li>
+<li class=""><code>rg -u --files-without-match "^#\!"</code>: find all files (including hidden files) without a shebang line</li>
+<li class=""><code>rg foo -A 5</code>: find all matches of foo and print the following 5 lines</li>
+<li class=""><code>rg --stats PATTERN</code>: print statistics of matches (# of matched lines and files )</li>
+<li class=""><code>sed 's/old/new/g' [file]</code>: replace all the occurrence of the pattern on the file</li>
+<li class=""><code>awk -F, ‘{ print $2 “ “ $1 “ “ $7 }’ [file]</code>: print fields 2, 1 and 7 of file considering a comma delimited file</li>
+<li class=""><code>sdiff -s [file1] [file2]</code>: prints the comparison of file1 and file2. <code>&lt;</code> if the line exists only in the first file, <code>></code> if the line exists only in the second file, <code>|</code> if they are different</li>
+<li class=""><code>sort [options] [files...]</code>: sort lines of text files. <code>-t char</code> char delimited files, <code>+n</code> sort by the nth field, <code>-n</code> sort numerically</li>
+<li class=""><code>uniq [options] [input] [output]</code>: report or omit repeated lines. <code>-u</code> print unique lines, <code>-D</code> print duplicate lines</li>
+<li class=""><code>tee [file]</code>: read from standard input and write to standard output and file. <code>-a</code> append, do not overwrite.</li>
+<li class=""><code>split [options] [size] [file] [prefix]</code>: output pieces of file to PREFIXaa, PREFIXab, ... in chunks of size size. <code>-b</code> size in bytes, <code>-l</code> size in lines, <code>-t char</code> use char as separator</li>
+<li class=""><code>at [options]</code>: o</li>
+<li class=""><code>date</code>: prints the current date</li>
+<li class=""><code>tar -xzvf file.tar.gz</code>: extract file</li>
+<li class=""><code>tar -czvf files.tar.gz file1.c file2.txt</code>: create a tar called <code>files</code> from <code>file1</code> and <code>file2</code></li>
+<li class=""><code>locate [name]</code>: finds files named <code>name</code> in the system</li>
+<li class=""><code>mount</code>: shows file systems, and how are they mounted</li>
+<li class=""><code>sudo mount [device] [mount path]</code>: mounts <code>[device]</code> on <code>[mount path]</code></li>
+<li class=""><code>umount [device]</code>: unmounts the devices</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=vim>Vim<a href=#vim class=hash-link aria-label="Direct link to Vim" title="Direct link to Vim" translate=no>​</a></h2>
+<p>Vim has 5 operating modes:</p>
+<ul>
+<li class=""><code>Normal</code>: for moving around a file and making edits</li>
+<li class=""><code>Insert</code>: for inserting text</li>
+<li class=""><code>Replace</code>: for replacing text</li>
+<li class=""><code>Visual</code>: for selecting blocks of text</li>
+<li class=""><code>Command-line</code>: for running a command</li>
+</ul>
+<p>One can change modes by pressing <code>&lt;ESC></code> to switch from any mode back to Normal mode. From Normal mode, enter Insert mode with <code>i</code>, Replace mode with <code>R</code>, Visual mode with <code>v</code>, Visual Line mode with <code>V</code>, Visual Block mode with <code>&lt;C-v></code>, and Command-line mode with <code>:</code>.</p>
+<p>Vim maintains a set of open files, called “buffers”. A Vim session has a number of tabs, each of which has a number of windows (split panes). Each window shows a single buffer. Unlike other programs you are familiar with, like web browsers, there is not a 1-to-1 correspondence between buffers and windows; windows are merely views. A given buffer may be open in multiple windows, even within the same tab. This can be quite handy, for example, to view two different parts of a file at the same time. By default, Vim opens with a single tab, which contains a single window.</p>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=normal>Normal<a href=#normal class=hash-link aria-label="Direct link to Normal" title="Direct link to Normal" translate=no>​</a></h3>
+<p>One should spend most of your time in Normal mode, using movement commands to navigate the buffer.</p>
+<ul>
+<li class="">Basic movement: <code>h j k l</code> (left, down, up, right)</li>
+<li class="">Words: <code>w</code> (next word), <code>b</code> (beginning of word), <code>e</code> (end of word)</li>
+<li class="">Lines: <code>0</code> (beginning of line), <code>^</code> (first non-blank character), <code>$</code> (end of line)</li>
+<li class="">Screen: <code>H</code> (top of screen), <code>M</code> (middle of screen), <code>L</code> (bottom of screen)</li>
+<li class="">Scroll: <code>Ctrl-u</code> (up), <code>Ctrl-d</code> (down)</li>
+<li class="">File: <code>gg</code> (beginning of file), <code>G</code> (end of file)</li>
+<li class="">Line numbers: <code>:{number}&lt;CR></code> - jump to line</li>
+<li class="">Search: <code>/{regex}</code>, <code>n</code> / <code>N</code> for navigating matches</li>
+<li class=""><code>o</code> / <code>O</code> insert line below / above</li>
+<li class=""><code>d\{motion}</code> delete {motion}. <code>dw</code> is delete word, <code>d$</code> is delete to end of line, <code>d0</code> is delete to beginning of line</li>
+<li class=""><code>c\{motion}</code> change {motion}. <code>cw</code> is change word. Like <code>d\{motion}</code> followed by <code>i</code></li>
+<li class=""><code>x</code> delete character (equal to dl)</li>
+<li class=""><code>s</code> substitute character (equal to <code>cl</code>)</li>
+<li class=""><code>u</code> to undo, <code>&lt;C-r></code> to redo</li>
+<li class=""><code>y</code> to copy (some other commands like d also copy)</li>
+<li class=""><code>p</code> to paste</li>
+<li class=""><code>~</code> flips the case of a character</li>
+</ul>
+<p>One can combine nouns and verbs with a count, which will perform a given action a number of times.</p>
+<ul>
+<li class=""><code>3w</code> move 3 words forward</li>
+<li class=""><code>5j</code> move 5 lines down</li>
+<li class=""><code>7dw</code> delete 7 words</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=visual>Visual<a href=#visual class=hash-link aria-label="Direct link to Visual" title="Direct link to Visual" translate=no>​</a></h3>
+<p>Select text, <code>d</code> to delete it or <code>c</code> to change it</p>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=command-line>Command-line<a href=#command-line class=hash-link aria-label="Direct link to Command-line" title="Direct link to Command-line" translate=no>​</a></h3>
+<ul>
+<li class=""><code>:q</code> quit (close window)</li>
+<li class=""><code>:w</code> save (“write”)</li>
+<li class=""><code>:x</code> save and quit</li>
+<li class=""><code>:e</code> {name of file} open file for editing</li>
+<li class=""><code>:ls</code> show open buffers</li>
+<li class=""><code>:help {topic}</code> open help<!-- -->
+<ul>
+<li class=""><code>:help :w</code> opens help for the <!-- -->:w<!-- --> command</li>
+<li class=""><code>:help w</code> opens help for the w movement</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_rA76" id=text-digest>Text Digest<a href=#text-digest class=hash-link aria-label="Direct link to Text Digest" title="Direct link to Text Digest" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=sed>sed<a href=#sed class=hash-link aria-label="Direct link to sed" title="Direct link to sed" translate=no>​</a></h3>
+<p>TODO</p>
+<h3 class="anchor anchorTargetStickyNavbar_rA76" id=awk>awk<a href=#awk class=hash-link aria-label="Direct link to awk" title="Direct link to awk" translate=no>​</a></h3>
+<p>TODO</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_cjCW"><a href="https://github.com/lima-emanuel/study-journal/tree/main/packages/create-docusaurus/templates/shared/docs/Operating Systems/sysadmin.mdx" target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_rqzC aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_Zogn"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/study-journal/docs/category/operating-systems/><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Operating Systems</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_AZQc thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#users class="table-of-contents__link toc-highlight">Users</a><li><a href=#file-system class="table-of-contents__link toc-highlight">File System</a><ul><li><a href=#filesystem-hierarchy-standard class="table-of-contents__link toc-highlight">Filesystem Hierarchy Standard</a><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><li><a href=#permissions class="table-of-contents__link toc-highlight">Permissions</a></ul><li><a href=#shell class="table-of-contents__link toc-highlight">Shell</a><ul><li><a href=#wildcards class="table-of-contents__link toc-highlight">Wildcards</a><li><a href=#variables class="table-of-contents__link toc-highlight">Variables</a></ul><li><a href=#system-information class="table-of-contents__link toc-highlight">System Information</a><li><a href=#systemd class="table-of-contents__link toc-highlight">Systemd</a><ul><li><a href=#journalctl class="table-of-contents__link toc-highlight">journalctl</a></ul><li><a href=#packages class="table-of-contents__link toc-highlight">Packages</a><ul><li><a href=#dnf class="table-of-contents__link toc-highlight">DNF</a><li><a href=#apt class="table-of-contents__link toc-highlight">APT</a></ul><li><a href=#mandatory-access-control class="table-of-contents__link toc-highlight">Mandatory Access Control</a><ul><li><a href=#selinux class="table-of-contents__link toc-highlight">SELinux</a></ul><li><a href=#curl class="table-of-contents__link toc-highlight">Curl</a><li><a href=#utilities class="table-of-contents__link toc-highlight">Utilities</a><li><a href=#vim class="table-of-contents__link toc-highlight">Vim</a><ul><li><a href=#normal class="table-of-contents__link toc-highlight">Normal</a><li><a href=#visual class="table-of-contents__link toc-highlight">Visual</a><li><a href=#command-line class="table-of-contents__link toc-highlight">Command-line</a></ul><li><a href=#text-digest class="table-of-contents__link toc-highlight">Text Digest</a><ul><li><a href=#sed class="table-of-contents__link toc-highlight">sed</a><li><a href=#awk class="table-of-contents__link toc-highlight">awk</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class=footer__copyright>Copyright © 2026 Emanuel Lima. Built with Docusaurus.</div></div></div></footer></div></body>
