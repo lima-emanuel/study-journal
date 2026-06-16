@@ -1,0 +1,40 @@
+---
+sidebar_position: 1
+---
+
+# LLM Agents
+
+## Good Tips
+- Make a plan for a change and ask for approval before starting to code
+- Write in the prompt about the tools the agent should use, such as:
+    - Use the `Z CLI` to check for error logs. Use `-h` to check how to use it.
+    - Use the `Z MCP Server` to check for error logs. Use `-h` to check how to use it.
+- Make the agent have a way to check it's own work, such as through tests or screenshots
+- The more context the agent has, the better. Tune the context continuously.
+Give concise context through:
+    - AGENTS.md
+    - Slash commands
+    - @`file.py`
+- Configure the agent and commit the files into a repo
+
+## Example Usage of Terminal Agents
+Codebase Q&A, such as:
+- How is `file.py` used?
+- Why does funtion `X` on file `Y` take so many arguments?
+- How issue `#X` was fixed?
+
+Code changes, such as:
+- Propose a few fixes for issue `#X`, then implement the one I pick.
+- Identify edge cases that are not covered in `test_file.py` then update the tests to cover them. Think Hard.
+- Use 3 parallel agents to brainstorm ideas for how to clean up `file.py`
+
+## Common Workflows
+1. Explore => Plan => Confirm => Code => Commit:
+    - Figure out the root cause for `issue #983`, then propose a few fixes.
+    Let me choose an approach before you code. Ultrathink.
+2. Write tests => Commit => Code => Iterate => Commit:
+    - Write tests for `file.py` to make sure links render properly
+    (note the tests won't pass yet, since links are not implemented yet).
+    Then commit, Then update the code to make the tests pass.
+3. Write code => Screenshot Results => Iterate:
+    - Implement `mock.png`. Then screenshot it with Puppeteer and iterate until it looks like the mock.
